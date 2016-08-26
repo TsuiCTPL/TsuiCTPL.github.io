@@ -3,81 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PHP基础语法 | Tsui的个人博客</title>
+  <title>KVC,KVO详解 | Tsui的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="打印语句
-echo 字符串 
-echo ‘—–’, $a+$b, ‘\’;
+  <meta name="description" content="1.KVO（键值监听）
+作用：用于做属性监听，也可以利用属性set方法在内部监听
 
+1.1 实现原理：
 
-print_r 数组
-var_dump 所有类型都行 打印变量类型及值
-
-转义
-单引号包裹：只认识两个转义    
-\’ -&amp;gt; ‘  \ -&amp;gt; \
-
-
-双引号包裹：
-\” —&amp;gt; \n      
-
-
-
-字符串拼接
-用.连接
-
-123$str1 = &apos;qqqq&apos;;$str2 = &apos;www&apos;;   ech">
+KVO是基于runtime机制实现的
+当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。
+派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP基础语法">
-<meta property="og:url" content="http://yoursite.com/2016/06/05/php/index.html">
+<meta property="og:title" content="KVC,KVO详解">
+<meta property="og:url" content="http://yoursite.com/2016/04/14/objc/kvc-kvo/index.html">
 <meta property="og:site_name" content="Tsui的个人博客">
-<meta property="og:description" content="打印语句
-echo 字符串 
-echo ‘—–’, $a+$b, ‘\’;
+<meta property="og:description" content="1.KVO（键值监听）
+作用：用于做属性监听，也可以利用属性set方法在内部监听
 
+1.1 实现原理：
 
-print_r 数组
-var_dump 所有类型都行 打印变量类型及值
-
-转义
-单引号包裹：只认识两个转义    
-\’ -&amp;gt; ‘  \ -&amp;gt; \
-
-
-双引号包裹：
-\” —&amp;gt; \n      
-
-
-
-字符串拼接
-用.连接
-
-123$str1 = &apos;qqqq&apos;;$str2 = &apos;www&apos;;   ech">
-<meta property="og:updated_time" content="2016-08-25T08:07:23.000Z">
+KVO是基于runtime机制实现的
+当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。
+派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）">
+<meta property="og:updated_time" content="2016-04-14T12:53:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP基础语法">
-<meta name="twitter:description" content="打印语句
-echo 字符串 
-echo ‘—–’, $a+$b, ‘\’;
+<meta name="twitter:title" content="KVC,KVO详解">
+<meta name="twitter:description" content="1.KVO（键值监听）
+作用：用于做属性监听，也可以利用属性set方法在内部监听
 
+1.1 实现原理：
 
-print_r 数组
-var_dump 所有类型都行 打印变量类型及值
-
-转义
-单引号包裹：只认识两个转义    
-\’ -&amp;gt; ‘  \ -&amp;gt; \
-
-
-双引号包裹：
-\” —&amp;gt; \n      
-
-
-
-字符串拼接
-用.连接
-
-123$str1 = &apos;qqqq&apos;;$str2 = &apos;www&apos;;   ech">
+KVO是基于runtime机制实现的
+当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。
+派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）">
   
     <link rel="alternative" href="/atom.xml" title="Tsui的个人博客" type="application/atom+xml">
   
@@ -247,11 +205,11 @@ var_dump 所有类型都行 打印变量类型及值
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-php" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-objc/kvc-kvo" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/05/php/" class="article-date">
-      <time datetime="2016-06-05T11:26:14.000Z" itemprop="datePublished">2016-06-05</time>
+      <a href="/2016/04/14/objc/kvc-kvo/" class="article-date">
+      <time datetime="2016-04-14T12:51:18.000Z" itemprop="datePublished">2016-04-14</time>
 </a>
     </div>
   
@@ -264,7 +222,7 @@ var_dump 所有类型都行 打印变量类型及值
         
   
     <h1 class="article-title" itemprop="name">
-      PHP基础语法
+      KVC,KVO详解
     </h1>
   
 
@@ -272,8 +230,16 @@ var_dump 所有类型都行 打印变量类型及值
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objc/">objc</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -281,54 +247,60 @@ var_dump 所有类型都行 打印变量类型及值
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h3 id="打印语句"><a href="#打印语句" class="headerlink" title="打印语句"></a>打印语句</h3><ul>
-<li>echo 字符串 <ul>
-<li>echo ‘—–’, $a+$b, ‘\<br>’;</li>
-</ul>
-</li>
-<li>print_r 数组</li>
-<li>var_dump 所有类型都行 打印变量类型及值</li>
-</ul>
-<h3 id="转义"><a href="#转义" class="headerlink" title="转义"></a>转义</h3><ul>
-<li>单引号包裹：只认识两个转义    <ul>
-<li>\’ -&gt; ‘  \ -&gt; \</li>
-</ul>
-</li>
-<li>双引号包裹：<ul>
-<li>\” —&gt; \n      </li>
-</ul>
-</li>
-</ul>
-<h3 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h3><ul>
-<li>用.连接</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$str1 = <span class="string">'qqqq'</span>;</span><br><span class="line">$str2 = <span class="string">'www'</span>;   </span><br><span class="line"><span class="keyword">echo</span> $str1 . $str2;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 如果key相同,那么以最后一个为准</span></span><br><span class="line"><span class="comment">// 如果没有定义key,那么系统默认从0开始</span></span><br><span class="line"><span class="comment">// 如果在某个定义了key,那么后面的+1</span></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"iiiii"</span>, <span class="string">"999"</span> =&gt; <span class="string">"oooo"</span>,  <span class="string">"sssss"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印数组</span></span><br><span class="line">print_r($arr);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line"><span class="comment">// 输入某个元素 用key控制 并且key最好用双引号裹起来</span></span><br><span class="line"><span class="keyword">echo</span> $arr[<span class="number">1000</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="获取get表单数据"><a href="#获取get表单数据" class="headerlink" title="获取get表单数据"></a>获取get表单数据</h3><ul>
-<li>地址栏上的参数将存储在一个叫_GET的数组中</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"你正在浏览第"</span>, $_GET[<span class="string">"tid"</span>], <span class="string">"个帖子”;</span></span><br></pre></td></tr></table></figure>
-<h3 id="变量检测"><a href="#变量检测" class="headerlink" title="变量检测"></a>变量检测</h3><ul>
-<li>isset可以检测变量是否存在<ul>
-<li>注意：对于NULL，isset也返回false</li>
-</ul>
-</li>
-</ul>
-<h3 id="获取判断类型"><a href="#获取判断类型" class="headerlink" title="获取判断类型"></a>获取判断类型</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断变量的类型</span></span><br><span class="line">is_int</span><br><span class="line">is_float </span><br><span class="line">is_bool </span><br><span class="line">is_string</span><br><span class="line">is_object</span><br><span class="line"><span class="comment">// 获取变量的类型</span></span><br><span class="line">gettype()</span><br></pre></td></tr></table></figure>
-<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><ul>
-<li>字符串转数字<ul>
-<li>从左到右截取，知道碰见不合法的字符，截取出来当数字</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$a1 = <span class="string">"hello"</span>;</span><br><span class="line">$a2 = <span class="string">"22hh"</span>;</span><br><span class="line">$b = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">echo</span> $a1 + $b;  <span class="comment">// 3</span></span><br><span class="line"><span class="keyword">echo</span> $a2 + $b;  <span class="comment">// 25;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="1-KVO（键值监听）"><a href="#1-KVO（键值监听）" class="headerlink" title="1.KVO（键值监听）"></a>1.KVO（键值监听）</h2><blockquote>
+<p>作用：用于做属性监听，也可以利用属性set方法在内部监听</p>
+</blockquote>
+<h3 id="1-1-实现原理："><a href="#1-1-实现原理：" class="headerlink" title="1.1 实现原理："></a>1.1 实现原理：</h3><blockquote>
 <ul>
-<li>字符串到布尔值<ul>
-<li>‘’,0,’0’,0.0 array(), </li>
+<li>KVO是基于runtime机制实现的</li>
+<li>当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。</li>
+<li>派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）</li>
+</ul>
+</blockquote>
+<h3 id="1-2-实例"><a href="#1-2-实例" class="headerlink" title="1.2 实例"></a>1.2 实例</h3><ul>
+<li>1.2.1 替属性注册监听</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (void)KVO</span><br><span class="line">&#123;</span><br><span class="line">    Person *p = [[Person alloc] init];</span><br><span class="line">    p.age = 30;</span><br><span class="line"></span><br><span class="line">    // 注册属性监听</span><br><span class="line">    [p addObserver:self forKeyPath:@&quot;age&quot; options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];</span><br><span class="line"></span><br><span class="line">    p.age = 30;</span><br><span class="line">    p.age = 40;</span><br><span class="line"></span><br><span class="line">    self.p = p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li><p>1.2.2 释放监听器</p>
+<p>  两种方式删除指定key路径的监听器</p>
+<ul>
+<li>removeObserver: forKeyPath</li>
+<li>removeObserver: forKeyPath: context:</li>
 </ul>
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    [self.p removeObserver:self forKeyPath:@&quot;age&quot;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>1.2.3 回调：当被监听的属性的值改变时调用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@&quot;%@对象的%@属性改变了：%@&quot;, object, keyPath, change);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-KVC（键值编码）"><a href="#2-KVC（键值编码）" class="headerlink" title="2.KVC（键值编码）"></a>2.KVC（键值编码）</h2><blockquote>
+<ul>
+<li>1.可以访问私有成员变量的值</li>
+<li>2.可以间接修改私有成员变量的值（替换系统自带的导航栏、tabbar）</li>
+</ul>
+</blockquote>
+<h3 id="2-1-访问属性"><a href="#2-1-访问属性" class="headerlink" title="2.1 访问属性"></a>2.1 访问属性</h3><blockquote>
+<p>公有属性</p>
+<p>私有属性</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Person *p = [[Person alloc] init];</span><br><span class="line">p.age = 20;</span><br><span class="line">// 访问公有属性</span><br><span class="line">int age = [[p valueForKey:@&quot;age&quot;] intValue];</span><br><span class="line">// 访问私有属性</span><br><span class="line">NSLog(@&quot;%f&quot;, [[p valueForKey:@&quot;height&quot;] floatValue]);</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-修改私有属性-readonly"><a href="#2-2-修改私有属性-readonly" class="headerlink" title="2.2 修改私有属性(readonly)"></a>2.2 修改私有属性(readonly)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[pageControl setValue:[UIImage</span><br><span class="line">                         imageNamed:@&quot;compose_keyboard_dot_normal&quot;] forKeyPath:@&quot;pageImage&quot;];</span><br><span class="line">[pageControl setValue:[UIImage</span><br><span class="line">                           imageNamed:@&quot;compose_keyboard_dot_selected&quot;] forKeyPath:@&quot;currentPageImage&quot;];</span><br><span class="line">[self addSubview:pageControl];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>forKey和forKeyPath区别</li>
+</ul>
+<blockquote>
+<p>keyPath包含了key的功能</p>
+<p>key:只能访问当前对象的属性</p>
+<p>keyPath:能利用.运算符一层一层往内部访问属性</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 两者都可以访问属性</span><br><span class="line">float h1 = [[p valueForKey:@&quot;height&quot;] floatValue];</span><br><span class="line">float h2 = [[p valueForKeyPath:@&quot;height&quot;] floatValue];</span><br><span class="line">NSLog(@&quot;%f %f&quot;, h1, h2);</span><br><span class="line"></span><br><span class="line">p.dog = [[HMDog alloc] init];</span><br><span class="line">p.dog.name = @&quot;wangcai&quot;;</span><br><span class="line">// forKeyPath可以根据路径访问属性</span><br><span class="line">NSLog(@&quot;%@&quot;, [p valueForKeyPath:@&quot;dog.name&quot;]);</span><br></pre></td></tr></table></figure>
+<h3 id="2-3-其他"><a href="#2-3-其他" class="headerlink" title="2.3 其他"></a>2.3 其他</h3><blockquote>
+<p>计算数组长度,元素和</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Book *b3 = [[Book alloc] init];</span><br><span class="line">b3.name = @&quot;aa&quot;;</span><br><span class="line">b3.price = 12;</span><br><span class="line"></span><br><span class="line">p.books = @[b1, b2, b3];</span><br><span class="line"></span><br><span class="line">// 计算数组的长度</span><br><span class="line">NSLog(@&quot;%@&quot;, [p valueForKeyPath:@&quot;books.@count&quot;]);</span><br><span class="line"></span><br><span class="line">// 取出对象数组中某一元素的值，形成新的数组</span><br><span class="line">NSArray *names = [p valueForKeyPath:@&quot;books.name&quot;];</span><br><span class="line">NSArray *names = [p.books valueForKeyPath:@&quot;name&quot;];</span><br><span class="line">NSLog(@&quot;%@&quot;, names);</span><br><span class="line"></span><br><span class="line">// 计算数组中某一个元素的和</span><br><span class="line">double sumPrice = [[p valueForKeyPath:@&quot;books.@sum.price&quot;] doubleValue];</span><br><span class="line">NSLog(@&quot;%f&quot;, sumPrice);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -337,13 +309,13 @@ var_dump 所有类型都行 打印变量类型及值
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/06/05/php/">PHP基础语法</a></p>
+        <p><span>本文标题:</span><a href="/2016/04/14/objc/kvc-kvo/">KVC,KVO详解</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 Tsui 的个人博客">Tsui</a></p>
-        <p><span>发布时间:</span>2016年06月05日 - 19时26分</p>
-        <p><span>最后更新:</span>2016年08月25日 - 16时07分</p>
+        <p><span>发布时间:</span>2016年04月14日 - 20时51分</p>
+        <p><span>最后更新:</span>2016年04月14日 - 20时53分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/06/05/php/" title="PHP基础语法">http://yoursite.com/2016/06/05/php/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/06/05/php/　　作者: Tsui" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/04/14/objc/kvc-kvo/" title="KVC,KVO详解">http://yoursite.com/2016/04/14/objc/kvc-kvo/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2016/04/14/objc/kvc-kvo/　　作者: Tsui" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -356,11 +328,15 @@ var_dump 所有类型都行 打印变量类型及值
 
 <nav id="article-nav">
   
-  
-    <a href="/2016/06/05/hexo/hexobuild/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">搭建基于hexo的个人博客</div>
-      <strong class="article-nav-caption">></strong>
+    <a href="/2016/06/05/hexo/hexobuild/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          搭建基于hexo的个人博客
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -369,7 +345,7 @@ var_dump 所有类型都行 打印变量类型及值
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#打印语句"><span class="toc-number">1.</span> <span class="toc-text">打印语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转义"><span class="toc-number">2.</span> <span class="toc-text">转义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串拼接"><span class="toc-number">3.</span> <span class="toc-text">字符串拼接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组"><span class="toc-number">4.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取get表单数据"><span class="toc-number">5.</span> <span class="toc-text">获取get表单数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量检测"><span class="toc-number">6.</span> <span class="toc-text">变量检测</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取判断类型"><span class="toc-number">7.</span> <span class="toc-text">获取判断类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类型转换"><span class="toc-number">8.</span> <span class="toc-text">类型转换</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-KVO（键值监听）"><span class="toc-number">1.</span> <span class="toc-text">1.KVO（键值监听）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-实现原理："><span class="toc-number">1.1.</span> <span class="toc-text">1.1 实现原理：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-实例"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 实例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-KVC（键值编码）"><span class="toc-number">2.</span> <span class="toc-text">2.KVC（键值编码）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-访问属性"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 访问属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-修改私有属性-readonly"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 修改私有属性(readonly)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-其他"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 其他</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -417,7 +393,7 @@ var_dump 所有类型都行 打印变量类型及值
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/06/05/php/" data-title="PHP基础语法" data-url="http://yoursite.com/2016/06/05/php/"></div>
+    <div class="ds-thread" data-thread-key="2016/04/14/objc/kvc-kvo/" data-title="KVC,KVO详解" data-url="http://yoursite.com/2016/04/14/objc/kvc-kvo/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -440,13 +416,13 @@ var_dump 所有类型都行 打印变量类型及值
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/06/05/hexo/hexobuild/" title="上一篇: 搭建基于hexo的个人博客">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/06/05/hexo/hexobuild/" title="下一篇: 搭建基于hexo的个人博客">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/php/">PHP基础语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/05/hexo/hexobuild/">搭建基于hexo的个人博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/14/objc/kvc-kvo/">KVC,KVO详解</a></li></ul>

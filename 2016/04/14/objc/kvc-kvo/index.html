@@ -84,37 +84,49 @@
 
 
 
-<meta name="description" content="1.KVO（键值监听）
+<meta name="description" content="KVO（键值监听）
 作用：用于做属性监听，也可以利用属性set方法在内部监听
 
-1.1 实现原理：
+实现原理
 
 KVO是基于runtime机制实现的
 当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。
-派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）">
+派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）
+
+
+实例
+1.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="KVC,KVO详解">
 <meta property="og:url" content="http://yoursite.com/2016/04/14/objc/kvc-kvo/index.html">
 <meta property="og:site_name" content="Tsui的个人博客">
-<meta property="og:description" content="1.KVO（键值监听）
+<meta property="og:description" content="KVO（键值监听）
 作用：用于做属性监听，也可以利用属性set方法在内部监听
 
-1.1 实现原理：
+实现原理
 
 KVO是基于runtime机制实现的
 当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。
-派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）">
-<meta property="og:updated_time" content="2016-04-14T12:53:10.000Z">
+派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）
+
+
+实例
+1.">
+<meta property="og:updated_time" content="2016-08-27T00:37:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="KVC,KVO详解">
-<meta name="twitter:description" content="1.KVO（键值监听）
+<meta name="twitter:description" content="KVO（键值监听）
 作用：用于做属性监听，也可以利用属性set方法在内部监听
 
-1.1 实现原理：
+实现原理
 
 KVO是基于runtime机制实现的
 当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。
-派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）">
+派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）
+
+
+实例
+1.">
 
 
 
@@ -127,7 +139,7 @@ KVO是基于runtime机制实现的
     motion: true,
     duoshuo: {
       userId: 0,
-      author: 'Author'
+      author: '博主'
     }
   };
 </script>
@@ -140,7 +152,7 @@ KVO是基于runtime机制实现的
   <title> KVC,KVO详解 | Tsui的个人博客 </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -195,7 +207,7 @@ KVO是基于runtime机制实现的
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            首页
           </a>
         </li>
       
@@ -205,7 +217,17 @@ KVO是基于runtime机制实现的
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -215,7 +237,7 @@ KVO是基于runtime机制实现的
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            Tags
+            标签
           </a>
         </li>
       
@@ -268,7 +290,7 @@ KVO是基于runtime机制实现的
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-o"></i>
             </span>
-            <span class="post-meta-item-text">Veröffentlicht am</span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-04-14T20:51:18+08:00" content="2016-04-14">
               2016-04-14
             </time>
@@ -280,7 +302,7 @@ KVO是基于runtime机制实现的
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">in</span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/iOS/" itemprop="url" rel="index">
@@ -316,17 +338,17 @@ KVO是基于runtime机制实现的
       
 
       
-        <h2 id="1-KVO（键值监听）"><a href="#1-KVO（键值监听）" class="headerlink" title="1.KVO（键值监听）"></a>1.KVO（键值监听）</h2><blockquote>
+        <h2 id="KVO（键值监听）"><a href="#KVO（键值监听）" class="headerlink" title="KVO（键值监听）"></a>KVO（键值监听）</h2><blockquote>
 <p>作用：用于做属性监听，也可以利用属性set方法在内部监听</p>
 </blockquote>
-<h3 id="1-1-实现原理："><a href="#1-1-实现原理：" class="headerlink" title="1.1 实现原理："></a>1.1 实现原理：</h3><blockquote>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><blockquote>
 <ul>
 <li>KVO是基于runtime机制实现的</li>
 <li>当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。</li>
 <li>派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）</li>
 </ul>
 </blockquote>
-<h3 id="1-2-实例"><a href="#1-2-实例" class="headerlink" title="1.2 实例"></a>1.2 实例</h3><ul>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ul>
 <li>1.2.1 替属性注册监听</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (void)KVO</span><br><span class="line">&#123;</span><br><span class="line">    Person *p = [[Person alloc] init];</span><br><span class="line">    p.age = 30;</span><br><span class="line"></span><br><span class="line">    // 注册属性监听</span><br><span class="line">    [p addObserver:self forKeyPath:@&quot;age&quot; options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];</span><br><span class="line"></span><br><span class="line">    p.age = 30;</span><br><span class="line">    p.age = 40;</span><br><span class="line"></span><br><span class="line">    self.p = p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -345,18 +367,18 @@ KVO是基于runtime机制实现的
 <li>1.2.3 回调：当被监听的属性的值改变时调用</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@&quot;%@对象的%@属性改变了：%@&quot;, object, keyPath, change);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2-KVC（键值编码）"><a href="#2-KVC（键值编码）" class="headerlink" title="2.KVC（键值编码）"></a>2.KVC（键值编码）</h2><blockquote>
+<h2 id="KVC（键值编码）"><a href="#KVC（键值编码）" class="headerlink" title="KVC（键值编码）"></a>KVC（键值编码）</h2><blockquote>
 <ul>
 <li>1.可以访问私有成员变量的值</li>
 <li>2.可以间接修改私有成员变量的值（替换系统自带的导航栏、tabbar）</li>
 </ul>
 </blockquote>
-<h3 id="2-1-访问属性"><a href="#2-1-访问属性" class="headerlink" title="2.1 访问属性"></a>2.1 访问属性</h3><blockquote>
+<h3 id="访问属性"><a href="#访问属性" class="headerlink" title="访问属性"></a>访问属性</h3><blockquote>
 <p>公有属性</p>
 <p>私有属性</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Person *p = [[Person alloc] init];</span><br><span class="line">p.age = 20;</span><br><span class="line">// 访问公有属性</span><br><span class="line">int age = [[p valueForKey:@&quot;age&quot;] intValue];</span><br><span class="line">// 访问私有属性</span><br><span class="line">NSLog(@&quot;%f&quot;, [[p valueForKey:@&quot;height&quot;] floatValue]);</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-修改私有属性-readonly"><a href="#2-2-修改私有属性-readonly" class="headerlink" title="2.2 修改私有属性(readonly)"></a>2.2 修改私有属性(readonly)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[pageControl setValue:[UIImage</span><br><span class="line">                         imageNamed:@&quot;compose_keyboard_dot_normal&quot;] forKeyPath:@&quot;pageImage&quot;];</span><br><span class="line">[pageControl setValue:[UIImage</span><br><span class="line">                           imageNamed:@&quot;compose_keyboard_dot_selected&quot;] forKeyPath:@&quot;currentPageImage&quot;];</span><br><span class="line">[self addSubview:pageControl];</span><br></pre></td></tr></table></figure>
+<h3 id="修改私有属性-readonly"><a href="#修改私有属性-readonly" class="headerlink" title="修改私有属性(readonly)"></a>修改私有属性(readonly)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[pageControl setValue:[UIImage</span><br><span class="line">                         imageNamed:@&quot;compose_keyboard_dot_normal&quot;] forKeyPath:@&quot;pageImage&quot;];</span><br><span class="line">[pageControl setValue:[UIImage</span><br><span class="line">                           imageNamed:@&quot;compose_keyboard_dot_selected&quot;] forKeyPath:@&quot;currentPageImage&quot;];</span><br><span class="line">[self addSubview:pageControl];</span><br></pre></td></tr></table></figure>
 <ul>
 <li>forKey和forKeyPath区别</li>
 </ul>
@@ -366,7 +388,7 @@ KVO是基于runtime机制实现的
 <p>keyPath:能利用.运算符一层一层往内部访问属性</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 两者都可以访问属性</span><br><span class="line">float h1 = [[p valueForKey:@&quot;height&quot;] floatValue];</span><br><span class="line">float h2 = [[p valueForKeyPath:@&quot;height&quot;] floatValue];</span><br><span class="line">NSLog(@&quot;%f %f&quot;, h1, h2);</span><br><span class="line"></span><br><span class="line">p.dog = [[HMDog alloc] init];</span><br><span class="line">p.dog.name = @&quot;wangcai&quot;;</span><br><span class="line">// forKeyPath可以根据路径访问属性</span><br><span class="line">NSLog(@&quot;%@&quot;, [p valueForKeyPath:@&quot;dog.name&quot;]);</span><br></pre></td></tr></table></figure>
-<h3 id="2-3-其他"><a href="#2-3-其他" class="headerlink" title="2.3 其他"></a>2.3 其他</h3><blockquote>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><blockquote>
 <p>计算数组长度,元素和</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Book *b3 = [[Book alloc] init];</span><br><span class="line">b3.name = @&quot;aa&quot;;</span><br><span class="line">b3.price = 12;</span><br><span class="line"></span><br><span class="line">p.books = @[b1, b2, b3];</span><br><span class="line"></span><br><span class="line">// 计算数组的长度</span><br><span class="line">NSLog(@&quot;%@&quot;, [p valueForKeyPath:@&quot;books.@count&quot;]);</span><br><span class="line"></span><br><span class="line">// 取出对象数组中某一元素的值，形成新的数组</span><br><span class="line">NSArray *names = [p valueForKeyPath:@&quot;books.name&quot;];</span><br><span class="line">NSArray *names = [p.books valueForKeyPath:@&quot;name&quot;];</span><br><span class="line">NSLog(@&quot;%@&quot;, names);</span><br><span class="line"></span><br><span class="line">// 计算数组中某一个元素的和</span><br><span class="line">double sumPrice = [[p valueForKeyPath:@&quot;books.@sum.price&quot;] doubleValue];</span><br><span class="line">NSLog(@&quot;%f&quot;, sumPrice);</span><br></pre></td></tr></table></figure>
@@ -405,8 +427,8 @@ KVO是基于runtime机制实现的
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/06/05/hexo/hexobuild/" rel="prev" title="搭建基于hexo的个人博客">
-                搭建基于hexo的个人博客 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/06/05/php/php/" rel="prev" title="PHP入门">
+                PHP入门 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -456,10 +478,10 @@ KVO是基于runtime机制实现的
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            站点概览
           </li>
         </ul>
       
@@ -476,24 +498,24 @@ KVO是基于runtime机制实现的
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">3</span>
-              <span class="site-state-item-name">Artikel</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
             <div class="site-state-item site-state-categories">
-              
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Kategorien</span>
-              
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
             </div>
           
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
               </a>
             </div>
           
@@ -503,6 +525,17 @@ KVO是基于runtime机制实现的
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TsuiCTPL" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 
@@ -521,7 +554,7 @@ KVO是基于runtime机制实现的
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-KVO（键值监听）"><span class="nav-number">1.</span> <span class="nav-text">1.KVO（键值监听）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-实现原理："><span class="nav-number">1.1.</span> <span class="nav-text">1.1 实现原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-实例"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-KVC（键值编码）"><span class="nav-number">2.</span> <span class="nav-text">2.KVC（键值编码）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-访问属性"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 访问属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-修改私有属性-readonly"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 修改私有属性(readonly)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-其他"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 其他</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#KVO（键值监听）"><span class="nav-number">1.</span> <span class="nav-text">KVO（键值监听）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现原理"><span class="nav-number">1.1.</span> <span class="nav-text">实现原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实例"><span class="nav-number">1.2.</span> <span class="nav-text">实例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#KVC（键值编码）"><span class="nav-number">2.</span> <span class="nav-text">KVC（键值编码）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#访问属性"><span class="nav-number">2.1.</span> <span class="nav-text">访问属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改私有属性-readonly"><span class="nav-number">2.2.</span> <span class="nav-text">修改私有属性(readonly)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">2.3.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -539,7 +572,7 @@ KVO是基于runtime机制实现的
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -548,11 +581,11 @@ KVO是基于runtime机制实现的
 </div>
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  Theme -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>

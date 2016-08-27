@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -84,15 +84,36 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tsui的个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="在开发中，经常会遇见点击某个按钮，弹出一个类似对话框的界面，但对话框往往过于简单，所以就出现了微博，QQ，微信上的气泡View，有多个选择，同时有图片和文字。于是就封装了popView自定义控件。
+
+实现效果  
+快速集成
+让控制器成为其代理
+
+12345678- (void)initPopView&amp;#123;    // 创建popView    SMPopView *popView = [S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义气泡弹窗控件(popView)">
+<meta property="og:url" content="http://yoursite.com/2016/08/27/iOS/popview/index.html">
 <meta property="og:site_name" content="Tsui的个人博客">
-<meta property="og:description">
+<meta property="og:description" content="在开发中，经常会遇见点击某个按钮，弹出一个类似对话框的界面，但对话框往往过于简单，所以就出现了微博，QQ，微信上的气泡View，有多个选择，同时有图片和文字。于是就封装了popView自定义控件。
+
+实现效果  
+快速集成
+让控制器成为其代理
+
+12345678- (void)initPopView&amp;#123;    // 创建popView    SMPopView *popView = [S">
+<meta property="og:image" content="http://yoursite.com/image/screenshot.png">
+<meta property="og:updated_time" content="2016-08-27T06:49:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tsui的个人博客">
-<meta name="twitter:description">
+<meta name="twitter:title" content="自定义气泡弹窗控件(popView)">
+<meta name="twitter:description" content="在开发中，经常会遇见点击某个按钮，弹出一个类似对话框的界面，但对话框往往过于简单，所以就出现了微博，QQ，微信上的气泡View，有多个选择，同时有图片和文字。于是就封装了popView自定义控件。
+
+实现效果  
+快速集成
+让控制器成为其代理
+
+12345678- (void)initPopView&amp;#123;    // 创建popView    SMPopView *popView = [S">
+<meta name="twitter:image" content="http://yoursite.com/image/screenshot.png">
 
 
 
@@ -113,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/27/iOS/popview/"/>
 
-  <title> Tsui的个人博客 </title>
+  <title> 自定义气泡弹窗控件(popView) | Tsui的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +157,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -225,9 +244,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -247,10 +266,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/08/27/iOS/popview/" itemprop="url">
-                  自定义气泡弹窗控件(popView)
-                </a>
+                自定义气泡弹窗控件(popView)
               
             
           </h1>
@@ -309,9 +325,7 @@
       
 
       
-        
-          
-            <blockquote>
+        <blockquote>
 <p>在开发中，经常会遇见点击某个按钮，弹出一个类似对话框的界面，但对话框往往过于简单，所以就出现了微博，QQ，微信上的气泡View，有多个选择，同时有图片和文字。于是就封装了popView自定义控件。</p>
 </blockquote>
 <h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p><img src="/image/screenshot.png" alt="自定义选择器效果图">  </p>
@@ -331,419 +345,59 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* 气泡的位置 */</span><br><span class="line">@property (nonatomic, assign) CGPoint position;</span><br><span class="line"></span><br><span class="line">/** 气泡的背景图片 */</span><br><span class="line">@property (nonatomic, weak) NSString *imageName;</span><br><span class="line"></span><br><span class="line">/** 按钮字体颜色 */</span><br><span class="line">@property (nonatomic, weak) UIColor *fontColor;</span><br></pre></td></tr></table></figure>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/05/hexo/hexobuild/" itemprop="url">
-                  搭建基于hexo的个人博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-05T19:26:14+08:00" content="2016-06-05">
-              2016-06-05
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <blockquote>
-<p>写在前面：</p>
-</blockquote>
-<p>首先，这个教程是我自己安装一遍之后写的，所以里面的一些坑也走过，于是总结出了下面的步骤，希望你们少走弯路。</p>
-<p>其次，因为是第一次安装，所以是参考了别人的教程做的，但是按照自己的理解之后，重新编排了步骤，使之更容易安装成功</p>
-<p>最后，希望看完这边教程之后，你们也可以有一个属于自己的blog</p>
-<blockquote>
-<h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3></blockquote>
-<p>作用：用来生成静态页面的</p>
-<p>注意：直接去人家官网下载，但是速度可能会慢一些</p>
-<blockquote>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3></blockquote>
-<p>作用：把本地的hexo内容提交到github上去.<br>注意：在mac平台上，如果已经安装Xcode，那么可忽略此步骤</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/05/hexo/hexobuild/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/05/hexo/hexobuild/" rel="next" title="搭建基于hexo的个人博客">
+                <i class="fa fa-chevron-left"></i> 搭建基于hexo的个人博客
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/05/php/php/" itemprop="url">
-                  PHP入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-05T19:26:14+08:00" content="2016-06-05">
-              2016-06-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h3 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h3><blockquote>
-<p>使用”.”连接</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$str1 = <span class="string">'qqqq'</span>;</span><br><span class="line">$str2 = <span class="string">'www'</span>;   </span><br><span class="line"><span class="keyword">echo</span> $str1 . $str2;</span><br></pre></td></tr></table></figure>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
-<p>如果key相同,那么以最后一个为准</p>
-<p>如果没有定义key,那么系统默认从0开始</p>
-<p>如果在某个位置定义了key,那么后面对应的+1</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"iiiii"</span>, <span class="string">"999"</span> =&gt; <span class="string">"oooo"</span>,  <span class="string">"sssss"</span>);</span><br><span class="line"><span class="comment">// 打印数组</span></span><br><span class="line">print_r($arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入某个元素:用key控制,并且key最好用双引号裹起来</span></span><br><span class="line"><span class="keyword">echo</span> $arr[<span class="string">"1000"</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="获取get表单数据"><a href="#获取get表单数据" class="headerlink" title="获取get表单数据"></a>获取get表单数据</h3><blockquote>
-<p>地址栏上的参数将存储在一个叫_GET的数组中</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"你正在浏览第"</span>, $_GET[<span class="string">"tid"</span>], <span class="string">"个帖子”;</span></span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/05/php/php/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/14/objc/kvc-kvo/" itemprop="url">
-                  KVC,KVO详解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-14T20:51:18+08:00" content="2016-04-14">
-              2016-04-14
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="KVO（键值监听）"><a href="#KVO（键值监听）" class="headerlink" title="KVO（键值监听）"></a>KVO（键值监听）</h2><blockquote>
-<p>作用：用于做属性监听，也可以利用属性set方法在内部监听</p>
-</blockquote>
-<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><blockquote>
-<ul>
-<li>KVO是基于runtime机制实现的</li>
-<li>当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。</li>
-<li>派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）</li>
-</ul>
-</blockquote>
-<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ul>
-<li>1.2.1 替属性注册监听</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (void)KVO</span><br><span class="line">&#123;</span><br><span class="line">    Person *p = [[Person alloc] init];</span><br><span class="line">    p.age = 30;</span><br><span class="line"></span><br><span class="line">    // 注册属性监听</span><br><span class="line">    [p addObserver:self forKeyPath:@&quot;age&quot; options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];</span><br><span class="line"></span><br><span class="line">    p.age = 30;</span><br><span class="line">    p.age = 40;</span><br><span class="line"></span><br><span class="line">    self.p = p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/14/objc/kvc-kvo/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -751,6 +405,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -770,8 +428,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -832,6 +499,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现效果"><span class="nav-number">1.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速集成"><span class="nav-number">2.</span> <span class="nav-text">快速集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理方法"><span class="nav-number">3.</span> <span class="nav-text">代理方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性定制"><span class="nav-number">4.</span> <span class="nav-text">个性定制</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -928,6 +606,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

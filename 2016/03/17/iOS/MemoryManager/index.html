@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="objc," />
 
 
 
@@ -84,36 +84,64 @@
 
 
 
-<meta name="description" content="在开发中，经常会遇见点击某个按钮，弹出一个类似对话框的界面，但对话框往往过于简单，所以就出现了微博，QQ，微信上的气泡View，有多个选项，同时有图片和文字。于是就封装了popView自定义控件。
+<meta name="description" content="内存管理
+堆：需要手动释放。
+栈：系统自动管理。
 
-实现效果  
-快速集成
-让控制器成为其代理
+所谓内存管理,就是对内存进行管理,涉及的操作有:
 
-12345678- (void)initPopView&amp;#123;    // 创建popView    SMPopView *popView = [S">
+分配内存 :比如创建一个对象,会增加内存占用
+清除内存 :比如销毁一个对象,能减小内存占用
+
+内存管理的管理范围
+
+任何继承了NSObject的对象
+对其他非对象类型无效(int、char、float、double、struct、enum等)
+
+只有OC对象才需要进行内存管理的本质原因
+
+OC对">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义气泡弹窗控件(popView)">
-<meta property="og:url" content="http://yoursite.com/2016/08/27/iOS/popview/index.html">
+<meta property="og:title" content="iOS内存管理（转载）">
+<meta property="og:url" content="http://yoursite.com/2016/03/17/iOS/MemoryManager/index.html">
 <meta property="og:site_name" content="Tsui的个人博客">
-<meta property="og:description" content="在开发中，经常会遇见点击某个按钮，弹出一个类似对话框的界面，但对话框往往过于简单，所以就出现了微博，QQ，微信上的气泡View，有多个选项，同时有图片和文字。于是就封装了popView自定义控件。
+<meta property="og:description" content="内存管理
+堆：需要手动释放。
+栈：系统自动管理。
 
-实现效果  
-快速集成
-让控制器成为其代理
+所谓内存管理,就是对内存进行管理,涉及的操作有:
 
-12345678- (void)initPopView&amp;#123;    // 创建popView    SMPopView *popView = [S">
-<meta property="og:image" content="http://yoursite.com/image/popView-01.png">
-<meta property="og:updated_time" content="2016-08-28T00:51:17.000Z">
+分配内存 :比如创建一个对象,会增加内存占用
+清除内存 :比如销毁一个对象,能减小内存占用
+
+内存管理的管理范围
+
+任何继承了NSObject的对象
+对其他非对象类型无效(int、char、float、double、struct、enum等)
+
+只有OC对象才需要进行内存管理的本质原因
+
+OC对">
+<meta property="og:updated_time" content="2016-08-28T07:48:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义气泡弹窗控件(popView)">
-<meta name="twitter:description" content="在开发中，经常会遇见点击某个按钮，弹出一个类似对话框的界面，但对话框往往过于简单，所以就出现了微博，QQ，微信上的气泡View，有多个选项，同时有图片和文字。于是就封装了popView自定义控件。
+<meta name="twitter:title" content="iOS内存管理（转载）">
+<meta name="twitter:description" content="内存管理
+堆：需要手动释放。
+栈：系统自动管理。
 
-实现效果  
-快速集成
-让控制器成为其代理
+所谓内存管理,就是对内存进行管理,涉及的操作有:
 
-12345678- (void)initPopView&amp;#123;    // 创建popView    SMPopView *popView = [S">
-<meta name="twitter:image" content="http://yoursite.com/image/popView-01.png">
+分配内存 :比如创建一个对象,会增加内存占用
+清除内存 :比如销毁一个对象,能减小内存占用
+
+内存管理的管理范围
+
+任何继承了NSObject的对象
+对其他非对象类型无效(int、char、float、double、struct、enum等)
+
+只有OC对象才需要进行内存管理的本质原因
+
+OC对">
 
 
 
@@ -134,9 +162,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/27/iOS/popview/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/03/17/iOS/MemoryManager/"/>
 
-  <title> 自定义气泡弹窗控件(popView) | Tsui的个人博客 </title>
+  <title> iOS内存管理（转载） | Tsui的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -266,7 +294,7 @@
             
             
               
-                自定义气泡弹窗控件(popView)
+                iOS内存管理（转载）
               
             
           </h1>
@@ -278,8 +306,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-27T13:05:52+08:00" content="2016-08-27">
-              2016-08-27
+            <time itemprop="dateCreated" datetime="2016-03-17T15:23:32+08:00" content="2016-03-17">
+              2016-03-17
             </time>
           </span>
 
@@ -325,26 +353,85 @@
       
 
       
-        <blockquote>
-<p>在开发中，经常会遇见点击某个按钮，弹出一个类似对话框的界面，但对话框往往过于简单，所以就出现了微博，QQ，微信上的气泡View，有多个选项，同时有图片和文字。于是就封装了popView自定义控件。</p>
+        <h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><blockquote>
+<p>堆：需要手动释放。</p>
+<p>栈：系统自动管理。</p>
 </blockquote>
-<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p><img src="image/popView-01.png" alt="自定义popView效果图">  </p>
-<h2 id="快速集成"><a href="#快速集成" class="headerlink" title="快速集成"></a>快速集成</h2><ul>
-<li>让控制器成为其代理</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)initPopView</span><br><span class="line">&#123;</span><br><span class="line">    // 创建popView</span><br><span class="line">    SMPopView *popView = [SMPopView popViewForTitles:@[@&quot;相册&quot;,@&quot;文章列表&quot;, @&quot;点赞&quot;, @&quot;添加好友&quot;] withImages:@[@&quot;album&quot;, @&quot;draft&quot;, @&quot;like&quot;, @&quot;new_friend&quot;]];</span><br><span class="line">    popView.delegate = self;</span><br><span class="line">    self.popView = popView;</span><br><span class="line">    [self.view addSubview:popView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="代理方法"><a href="#代理方法" class="headerlink" title="代理方法"></a>代理方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  点击popView的item后的回调方法，传回Item的索引值</span><br><span class="line"> */</span><br><span class="line">- (void)popView:(SMPopView *)popView didClickItemIndex:(NSInteger)index</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@&quot;%zd&quot;, index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="个性定制"><a href="#个性定制" class="headerlink" title="个性定制"></a>个性定制</h2><blockquote>
-<p>提供位置，背景图片，字体三个属性进行个性化需求</p>
-<p>其中框架中提供了三个背景图片，只是指向的箭头位置不同而已</p>
+<p>所谓内存管理,就是对内存进行管理,涉及的操作有:</p>
 <ul>
-<li>popover_background_left@2x  左上角</li>
-<li>popover_background@2x  中间</li>
-<li>popover_background_right@2x  右上角</li>
+<li>分配内存 :比如创建一个对象,会增加内存占用</li>
+<li>清除内存 :比如销毁一个对象,能减小内存占用</li>
+</ul>
+<p>内存管理的管理范围</p>
+<ul>
+<li>任何继承了NSObject的对象</li>
+<li>对其他非对象类型无效(int、char、float、double、struct、enum等)</li>
+</ul>
+<p>只有OC对象才需要进行内存管理的本质原因</p>
+<ul>
+<li>OC对象存放于堆里面</li>
+<li>OC基础类型一般放在栈里面(栈内存会被系统自动回收)</li>
+</ul>
+<h3 id="引用计数器的常见操作"><a href="#引用计数器的常见操作" class="headerlink" title="引用计数器的常见操作"></a>引用计数器的常见操作</h3><blockquote>
+<p>给对象发送一条retain消息,可以使引用计数器值+1（retain方法返回对象本身）</p>
+<p>给对象发送一条release消息,可以使引用计数器值-1</p>
+<p>给对象发送retainCount消息,可以获得当前的引用计数器值</p>
+</blockquote>
+<p>需要<code>注意</code>的是: release并不代表销毁\回收对象,仅仅是计数器-1。</p>
+<a id="more"></a>
+<h3 id="空指针-野指针"><a href="#空指针-野指针" class="headerlink" title="空指针\野指针"></a>空指针\野指针</h3><blockquote>
+<p>僵尸对象:已经被销毁的对象(不能再使用的对象)</p>
+<p>野指针:指向僵尸对象(不可用内存)的指针<br>给野指针发消息会报EXC_BAD_ACCESS错误</p>
+<p>空指针:没有指向存储空间的指针(里面存的是nil,也就是0)</p>
+<ul>
+<li>给空指针发消息是没有任何反应的。</li>
+<li>为了避免野指针错误的常见办法</li>
+<li>在对象被销毁之后,将指向对象的指针变为空指针</li>
 </ul>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">/* 气泡的位置 */</span><br><span class="line">@property (nonatomic, assign) CGPoint position;</span><br><span class="line"></span><br><span class="line">/** 气泡的背景图片 */</span><br><span class="line">@property (nonatomic, weak) NSString *imageName;</span><br><span class="line"></span><br><span class="line">/** 按钮字体颜色 */</span><br><span class="line">@property (nonatomic, weak) UIColor *fontColor;</span><br></pre></td></tr></table></figure>
+<h3 id="delloc方法注意细节"><a href="#delloc方法注意细节" class="headerlink" title="delloc方法注意细节"></a>delloc方法注意细节</h3><blockquote>
+<p>当一个对象的引用计数器值为0时</p>
+<ul>
+<li>这个对象即将被销毁，其占用的内存被系统回收</li>
+<li>系统会自动给对象发送一条dealloc消息(因此,从dealloc方法有没有被调用,就可以判断出对象是否被销毁)</li>
+</ul>
+<p>dealloc方法的重写</p>
+<ul>
+<li>一般会重写dealloc方法,在这里释放相关资源,dealloc就是对象的遗言</li>
+<li>一旦重写了dealloc方法,就必须调用[super dealloc],并且放在最后面调用</li>
+</ul>
+</blockquote>
+<p><code>注意:</code></p>
+<ul>
+<li>不能直接调用dealloc方法</li>
+<li>一旦对象被回收了,它占用的内存就不再可用,坚持使用会导致程序崩溃（野指针错误）</li>
+</ul>
+<h3 id="内存管理原则"><a href="#内存管理原则" class="headerlink" title="内存管理原则"></a>内存管理原则</h3><ul>
+<li>谁创建谁release:如果你通过alloc、new或[mutable]copy来创建一个对象，那么你必须调用release或autorelease。</li>
+<li>谁retain谁release:只要你调用了retain，就必须调用一次release。</li>
+</ul>
+<p>总结</p>
+<blockquote>
+<p>有加就有减</p>
+<p>曾经让对象的计数器+1，就必须在最后让对象计数器-1</p>
+</blockquote>
+<p>set方法的内存管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (void)setCar:(Car*)car</span><br><span class="line">&#123;</span><br><span class="line">   if(car!= _car)</span><br><span class="line">   &#123;</span><br><span class="line">        // 对当前正在使用的车（旧车）做一次release</span><br><span class="line">        [_car release];</span><br><span class="line"></span><br><span class="line">        // 对新车做一次retain操作</span><br><span class="line">         _car=[car retain];</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>dealloc方法内存管理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)dealloc</span><br><span class="line">&#123;</span><br><span class="line">     //当人不在了，代表不用车了</span><br><span class="line">     // 对车做一次release操作</span><br><span class="line">   [_car release]; </span><br><span class="line">     //调用dealloc方法时候一定要调用父类的dealloc的方法</span><br><span class="line">   [super dealloc];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="class和-import的区别"><a href="#class和-import的区别" class="headerlink" title="@class和#import的区别"></a>@class和#import的区别</h3><blockquote>
+<p>作用上的区别</p>
+<ul>
+<li>import会包含引用类的所有信息(内容), 包括引用类的变量和方法</li>
+<li>@class仅仅是告诉编译器有这么一个类,具体这个类里有什么信息, 完全不知道。</li>
+</ul>
+<p>效率上的区别</p>
+<ul>
+<li>如果有上百个头文件都#import了同一个文件，或者这些文件依次被#import,那么一旦最开始的头文件稍有改动，后面引用到这个文件的所有类都需要重新编译一遍,编译效率非常低</li>
+<li>相对来讲，使用@class方式就不会出现这种问题</li>
+</ul>
+</blockquote>
+<p><a href="http://www.jianshu.com/p/7ff932ec03b8" target="_blank" rel="external">转载自内存管理笔记</a></p>
 
       
     </div>
@@ -367,7 +454,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
+            <a href="/tags/objc/" rel="tag">#objc</a>
           
         </div>
       
@@ -376,13 +463,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/13/iOS/gcd/" rel="next" title="GCD">
-                <i class="fa fa-chevron-left"></i> GCD
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/14/objc/kvc-kvo/" rel="prev" title="KVC,KVO详解">
+                KVC,KVO详解 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -507,7 +594,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实现效果"><span class="nav-number">1.</span> <span class="nav-text">实现效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速集成"><span class="nav-number">2.</span> <span class="nav-text">快速集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代理方法"><span class="nav-number">3.</span> <span class="nav-text">代理方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性定制"><span class="nav-number">4.</span> <span class="nav-text">个性定制</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存管理"><span class="nav-number">1.</span> <span class="nav-text">内存管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用计数器的常见操作"><span class="nav-number">2.</span> <span class="nav-text">引用计数器的常见操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空指针-野指针"><span class="nav-number">3.</span> <span class="nav-text">空指针\野指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delloc方法注意细节"><span class="nav-number">4.</span> <span class="nav-text">delloc方法注意细节</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存管理原则"><span class="nav-number">5.</span> <span class="nav-text">内存管理原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class和-import的区别"><span class="nav-number">6.</span> <span class="nav-text">@class和#import的区别</span></a></li></ol></div>
             
           </div>
         </section>

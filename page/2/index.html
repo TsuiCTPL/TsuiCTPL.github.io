@@ -87,7 +87,7 @@
 <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tsui的个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="Tsui的个人博客">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -113,7 +113,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
   <title> Tsui的个人博客 </title>
 </head>
@@ -248,8 +248,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/27/iOS/popview/" itemprop="url">
-                  自定义气泡弹窗控件(popView)
+                <a class="post-title-link" href="/2016/05/20/iOS/runtime/" itemprop="url">
+                  Runtime
                 </a>
               
             
@@ -262,8 +262,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-27T13:05:52+08:00" content="2016-08-27">
-              2016-08-27
+            <time itemprop="dateCreated" datetime="2016-05-20T10:37:05+08:00" content="2016-05-20">
+              2016-05-20
             </time>
           </span>
 
@@ -310,17 +310,148 @@
 
       
         
-          <blockquote>
-<p>在开发中，经常会遇见点击某个按钮，弹出一个类似对话框的界面，但对话框往往过于简单，所以就出现了微博，QQ，微信上的气泡View，有多个选项，同时有图片和文字。于是就封装了popView自定义控件。</p>
+          <h2 id="Runtime概念"><a href="#Runtime概念" class="headerlink" title="Runtime概念"></a>Runtime概念</h2><p>RunTime简称运行时。就是系统在运行的时候的一些机制，其中最主要的是消息机制。对于C语言，函数的调用在编译的时候会决定调用哪个函数（ C语言的函数调用请看这里 ）。编译完成之后直接顺序执行，无任何二义性。OC的函数调用成为消息发送。属于动态调用过程。在编译的时候并不能决定真正调用哪个函数（事实证明，在编 译阶段，OC可以调用任何函数，即使这个函数并未实现，只要申明过就不会报错。而C语言在编译阶段就会报错）。只有在真正运行的时候才会根据函数的名称找 到对应的函数来调用。</p>
+<h2 id="动态调用"><a href="#动态调用" class="headerlink" title="动态调用"></a>动态调用</h2><p>那OC是怎么实现动态调用的呢？下面我们来看看OC通过发送消息来达到动态调用的秘密。假如在OC中写了这样的一个代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[obj makeText];</span><br></pre></td></tr></table></figure>
+<p>其中obj是一个对象，makeText是一个函数名称。对于这样一个简单的调用。在编译时RunTime会将上述代码转化成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">objc_msgSend(obj,@selector(makeText));</span><br></pre></td></tr></table></figure>
+<p>首先我们来看看obj这个对象，iOS中的obj都继承于NSObject。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@interface NSObject &lt;nsobject&gt; &#123;</span><br><span class="line"></span><br><span class="line">    Class isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"></span><br><span class="line">&#125;&lt;/nsobject&gt;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/05/20/iOS/runtime/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/21/iOS/runloop/" itemprop="url">
+                  RunLoop
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-21T22:18:32+08:00" content="2016-04-21">
+              2016-04-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="RunLoop-的概念"><a href="#RunLoop-的概念" class="headerlink" title="RunLoop 的概念"></a>RunLoop 的概念</h2><p>一般来讲，一个线程一次只能执行一个任务，执行完成后线程就会退出。如果我们需要一个机制，让线程能随时处理事件但并不退出，通常的代码逻辑是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function loop() &#123;</span><br><span class="line">    initialize();</span><br><span class="line">    do &#123;</span><br><span class="line">        var message = get_next_message();</span><br><span class="line">        process_message(message);</span><br><span class="line">    &#125; while (message != quit);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种模型通常被称作 Event Loop。 Event Loop 在很多系统和框架里都有实现，比如 Node.js 的事件处理，比如 Windows 程序的消息循环，再比如 OSX/iOS 里的 RunLoop。实现这种模型的关键点在于：如何管理事件/消息，如何让线程在没有处理消息时休眠以避免资源占用、在有消息到来时立刻被唤醒。</p>
+<h3 id="RunLoop在iOS中的初体验"><a href="#RunLoop在iOS中的初体验" class="headerlink" title="RunLoop在iOS中的初体验"></a>RunLoop在iOS中的初体验</h3><blockquote>
+<p>UIApplicationMain函数内部启动了RunLoop，所以UIApplicationMain函数一直没有返回，保持程序持续运行。这个默认启动的RunLoop与主线程相关联</p>
 </blockquote>
-<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p><img src="image/popView-01.png" alt="自定义popView效果图">  </p>
-<h2 id="快速集成"><a href="#快速集成" class="headerlink" title="快速集成"></a>快速集成</h2><ul>
-<li>让控制器成为其代理</li>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char * argv[])&#123;</span><br><span class="line">	@autoreleasepool&#123;</span><br><span class="line">		return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="RunLoop对象"><a href="#RunLoop对象" class="headerlink" title="RunLoop对象"></a>RunLoop对象</h2><h3 id="两套API"><a href="#两套API" class="headerlink" title="两套API"></a>两套API</h3><ul>
+<li><p>CGRunLoop（Core Foundation）</p>
+<blockquote>
+<p>它提供了纯 C 函数的 API，所有这些 API 都是线程安全的</p>
+</blockquote>
+</li>
+<li><p>NSRunLoop（基于CGRunLoop的封装）</p>
+<blockquote>
+<p>提供了面向对象的 API，但是这些 API 不是线程安全的</p>
+</blockquote>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)initPopView</span><br><span class="line">&#123;</span><br><span class="line">    // 创建popView</span><br><span class="line">    SMPopView *popView = [SMPopView popViewForTitles:@[@&quot;相册&quot;,@&quot;文章列表&quot;, @&quot;点赞&quot;, @&quot;添加好友&quot;] withImages:@[@&quot;album&quot;, @&quot;draft&quot;, @&quot;like&quot;, @&quot;new_friend&quot;]];</span><br><span class="line">    popView.delegate = self;</span><br><span class="line">    self.popView = popView;</span><br><span class="line">    [self.view addSubview:popView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="代理方法"><a href="#代理方法" class="headerlink" title="代理方法"></a>代理方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  点击popView的item后的回调方法，传回Item的索引值</span><br><span class="line"> */</span><br><span class="line">- (void)popView:(SMPopView *)popView didClickItemIndex:(NSInteger)index</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@&quot;%zd&quot;, index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/iOS/popview/#more" rel="contents">
+            <a class="btn" href="/2016/04/21/iOS/runloop/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -371,8 +502,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/13/iOS/gcd/" itemprop="url">
-                  GCD
+                <a class="post-title-link" href="/2016/04/14/objc/kvc-kvo/" itemprop="url">
+                  KVC,KVO详解
                 </a>
               
             
@@ -385,8 +516,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-13T14:12:51+08:00" content="2016-07-13">
-              2016-07-13
+            <time itemprop="dateCreated" datetime="2016-04-14T20:51:18+08:00" content="2016-04-14">
+              2016-04-14
             </time>
           </span>
 
@@ -433,9 +564,25 @@
 
       
         
-          
-            
-          
+          <h2 id="KVO（键值监听）"><a href="#KVO（键值监听）" class="headerlink" title="KVO（键值监听）"></a>KVO（键值监听）</h2><blockquote>
+<p>作用：用于做属性监听，也可以利用属性set方法在内部监听</p>
+</blockquote>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><blockquote>
+<ul>
+<li>KVO是基于runtime机制实现的</li>
+<li>当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。</li>
+<li>派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）</li>
+</ul>
+</blockquote>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ul>
+<li>1.2.1 替属性注册监听</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (void)KVO</span><br><span class="line">&#123;</span><br><span class="line">    Person *p = [[Person alloc] init];</span><br><span class="line">    p.age = 30;</span><br><span class="line"></span><br><span class="line">    // 注册属性监听</span><br><span class="line">    [p addObserver:self forKeyPath:@&quot;age&quot; options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];</span><br><span class="line"></span><br><span class="line">    p.age = 30;</span><br><span class="line">    p.age = 40;</span><br><span class="line"></span><br><span class="line">    self.p = p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/14/objc/kvc-kvo/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -483,8 +630,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/15/iOS/block/" itemprop="url">
-                  Block
+                <a class="post-title-link" href="/2016/03/17/iOS/MemoryManager/" itemprop="url">
+                  iOS内存管理（转载）
                 </a>
               
             
@@ -497,8 +644,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-15T14:12:26+08:00" content="2016-06-15">
-              2016-06-15
+            <time itemprop="dateCreated" datetime="2016-03-17T15:23:32+08:00" content="2016-03-17">
+              2016-03-17
             </time>
           </span>
 
@@ -545,274 +692,33 @@
 
       
         
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Block本质上是指向一个结构体的指针。Block可以形象的比作一个函数体。使用代Block你可以像调用其他标准函数一样，传入参数数，并得到返回值。但是它远比函数更加强大。</p>
-<h3 id="循环引用"><a href="#循环引用" class="headerlink" title="循环引用"></a>循环引用</h3><blockquote>
-<p>1.如果没有对block进行copy操作，block就存储于栈空间</p>
-<p>2.如果对block进行copy操作，block就存储于堆空间</p>
-<p>3.如果block存储于栈空间，不会对block内部所用到的对象产生强引用</p>
-<p>4.如果block存储于堆空间，就会对block内部所用到的对象产生强引用</p>
+          <h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><blockquote>
+<p>堆：需要手动释放。</p>
+<p>栈：系统自动管理。</p>
 </blockquote>
-<p>当block中的对象被强引用时，导致循环引用，内存无法释放</p>
-<p>解决方法：使用__weak 指向对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Person *p = [[Person alloc] init];</span><br><span class="line">// 解决循环引用</span><br><span class="line">__weak typeof(p) weakP = p;</span><br><span class="line">p.testBlock = ^&#123;</span><br><span class="line">     [weakP run];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">返回值类型(^block变量名)(形参列表) = ^(形参列表) &#123;</span><br><span class="line">&#125;;</span><br><span class="line">调用Block保存的代码</span><br><span class="line">block变量名(实参);</span><br></pre></td></tr></table></figure>
+<p>所谓内存管理,就是对内存进行管理,涉及的操作有:</p>
+<ul>
+<li>分配内存 :比如创建一个对象,会增加内存占用</li>
+<li>清除内存 :比如销毁一个对象,能减小内存占用</li>
+</ul>
+<p>内存管理的管理范围</p>
+<ul>
+<li>任何继承了NSObject的对象</li>
+<li>对其他非对象类型无效(int、char、float、double、struct、enum等)</li>
+</ul>
+<p>只有OC对象才需要进行内存管理的本质原因</p>
+<ul>
+<li>OC对象存放于堆里面</li>
+<li>OC基础类型一般放在栈里面(栈内存会被系统自动回收)</li>
+</ul>
+<h3 id="引用计数器的常见操作"><a href="#引用计数器的常见操作" class="headerlink" title="引用计数器的常见操作"></a>引用计数器的常见操作</h3><blockquote>
+<p>给对象发送一条retain消息,可以使引用计数器值+1（retain方法返回对象本身）</p>
+<p>给对象发送一条release消息,可以使引用计数器值-1</p>
+<p>给对象发送retainCount消息,可以获得当前的引用计数器值</p>
+</blockquote>
+<p>需要<code>注意</code>的是: release并不代表销毁\回收对象,仅仅是计数器-1。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/15/iOS/block/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/05/hexo/hexobuild/" itemprop="url">
-                  搭建基于hexo的个人博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-05T19:26:14+08:00" content="2016-06-05">
-              2016-06-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/教程/" itemprop="url" rel="index">
-                    <span itemprop="name">教程</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>写在前面：</p>
-</blockquote>
-<p>首先，这个教程是我自己安装一遍之后写的，所以里面的一些坑也走过，于是总结出了下面的步骤，希望你们少走弯路。</p>
-<p>其次，因为是第一次安装，所以是参考了别人的教程做的，但是按照自己的理解之后，重新编排了步骤，使之更容易安装成功</p>
-<p>最后，希望看完这边教程之后，你们也可以有一个属于自己的blog</p>
-<blockquote>
-<h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3></blockquote>
-<p>作用：用来生成静态页面的</p>
-<p>注意：直接去人家官网下载，但是速度可能会慢一些</p>
-<blockquote>
-<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3></blockquote>
-<p>作用：把本地的hexo内容提交到github上去.<br>注意：在mac平台上，如果已经安装Xcode，那么可忽略此步骤</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/05/hexo/hexobuild/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/06/05/php/php/" itemprop="url">
-                  PHP入门
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-05T19:26:14+08:00" content="2016-06-05">
-              2016-06-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h3><blockquote>
-<p>使用”.”连接</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$str1 = <span class="string">'qqqq'</span>;</span><br><span class="line">$str2 = <span class="string">'www'</span>;   </span><br><span class="line"><span class="keyword">echo</span> $str1 . $str2;</span><br></pre></td></tr></table></figure>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
-<p>如果key相同,那么以最后一个为准</p>
-<p>如果没有定义key,那么系统默认从0开始</p>
-<p>如果在某个位置定义了key,那么后面对应的+1</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"iiiii"</span>, <span class="string">"999"</span> =&gt; <span class="string">"oooo"</span>,  <span class="string">"sssss"</span>);</span><br><span class="line"><span class="comment">// 打印数组</span></span><br><span class="line">print_r($arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入某个元素:用key控制,并且key最好用双引号裹起来</span></span><br><span class="line"><span class="keyword">echo</span> $arr[<span class="string">"1000"</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="获取get表单数据"><a href="#获取get表单数据" class="headerlink" title="获取get表单数据"></a>获取get表单数据</h3><blockquote>
-<p>地址栏上的参数将存储在一个叫_GET的数组中</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"你正在浏览第"</span>, $_GET[<span class="string">"tid"</span>], <span class="string">"个帖子”;</span></span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/05/php/php/#more" rel="contents">
+            <a class="btn" href="/2016/03/17/iOS/MemoryManager/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -846,7 +752,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
   </nav>
 
 

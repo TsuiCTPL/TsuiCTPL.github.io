@@ -248,6 +248,134 @@
             
               
                 
+                <a class="post-title-link" href="/2016/06/05/php/php/" itemprop="url">
+                  PHP入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-05T19:26:14+08:00" content="2016-06-05">
+              2016-06-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h3><blockquote>
+<p>使用”.”连接</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$str1 = <span class="string">'qqqq'</span>;</span><br><span class="line">$str2 = <span class="string">'www'</span>;   </span><br><span class="line"><span class="keyword">echo</span> $str1 . $str2;</span><br></pre></td></tr></table></figure>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
+<p>如果key相同,那么以最后一个为准</p>
+<p>如果没有定义key,那么系统默认从0开始</p>
+<p>如果在某个位置定义了key,那么后面对应的+1</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"iiiii"</span>, <span class="string">"999"</span> =&gt; <span class="string">"oooo"</span>,  <span class="string">"sssss"</span>);</span><br><span class="line"><span class="comment">// 打印数组</span></span><br><span class="line">print_r($arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入某个元素:用key控制,并且key最好用双引号裹起来</span></span><br><span class="line"><span class="keyword">echo</span> $arr[<span class="string">"1000"</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="获取get表单数据"><a href="#获取get表单数据" class="headerlink" title="获取get表单数据"></a>获取get表单数据</h3><blockquote>
+<p>地址栏上的参数将存储在一个叫_GET的数组中</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"你正在浏览第"</span>, $_GET[<span class="string">"tid"</span>], <span class="string">"个帖子”;</span></span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/06/05/php/php/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/05/20/iOS/runtime/" itemprop="url">
                   Runtime
                 </a>
@@ -793,7 +921,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

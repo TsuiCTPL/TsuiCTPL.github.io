@@ -93,7 +93,7 @@ GCD会自动管理线程的生命周期（创建线程、调度任务、销毁�
 任务与队列任务
 同步的方式执行任务
 
-1234queue：队列block：任务dispatch_sync(dispatch_q">
+1234queue：队列 block：任务dispatch_sync(dispatch_q">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GCD">
 <meta property="og:url" content="http://yoursite.com/2016/07/13/iOS/gcd/index.html">
@@ -107,9 +107,9 @@ GCD会自动管理线程的生命周期（创建线程、调度任务、销毁�
 任务与队列任务
 同步的方式执行任务
 
-1234queue：队列block：任务dispatch_sync(dispatch_q">
+1234queue：队列 block：任务dispatch_sync(dispatch_q">
 <meta property="og:image" content="http://yoursite.com/image/gcd-01.png">
-<meta property="og:updated_time" content="2016-08-28T12:22:38.000Z">
+<meta property="og:updated_time" content="2016-08-28T12:42:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GCD">
 <meta name="twitter:description" content="GCD是什么GCD的全称是Grand Central Dispatch，纯C语言。
@@ -121,7 +121,7 @@ GCD会自动管理线程的生命周期（创建线程、调度任务、销毁�
 任务与队列任务
 同步的方式执行任务
 
-1234queue：队列block：任务dispatch_sync(dispatch_q">
+1234queue：队列 block：任务dispatch_sync(dispatch_q">
 <meta name="twitter:image" content="http://yoursite.com/image/gcd-01.png">
 
 
@@ -343,20 +343,93 @@ GCD会自动管理线程的生命周期（创建线程、调度任务、销毁�
 <h2 id="任务与队列"><a href="#任务与队列" class="headerlink" title="任务与队列"></a>任务与队列</h2><h3 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h3><ul>
 <li>同步的方式执行任务</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">queue：队列block：任务</span><br><span class="line">dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);</span><br><span class="line"></span><br><span class="line">```- 异步的方式执行任务</span><br></pre></td></tr></table></figure>
-<p>dispatch_async(dispatch_queue_t queue, dispatch_block_t block);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 阻挡的方式执行任务</span><br><span class="line">&gt; 在前面的任务执行结束后它才执行，而且它后面的任务等它执行完成之后才会执行</span><br></pre></td></tr></table></figure></p>
-<p>dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;同步和异步的区别</span><br><span class="line">&gt;- 同步：只能在当前线程中执行任务，不具备开启新线程的能力- 异步：可以在新的线程中执行任务，具备开启新线程的能力</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 队列</span><br><span class="line"></span><br><span class="line">&gt; 用来存放任务</span><br><span class="line"></span><br><span class="line">- 并发队列</span><br><span class="line">   - 可以让多个任务并发（同时）执行（自动开启多个线程同时执行任务）   - 并发功能只有在异步（dispatch_async）函数下才有效</span><br><span class="line">- 串行队列</span><br><span class="line">   - 让任务一个接着一个地执行（一个任务执行完毕后，再执行下一个任务）</span><br><span class="line"></span><br><span class="line">   </span><br><span class="line">### 总结</span><br><span class="line">&gt; 同步和异步主要影响：能不能开启新的线程&gt;</span><br><span class="line">- 同步：只是在当前线程中执行任务，不具备开启新线程的能力。在遇到新的任务时，马上就在当前线程执行新的任务- 异步：可以在新的线程中执行任务，具备开启新线程的能力。遇到新的任务时，会让当前线程执行完任务，然后开启新的线程，执行新的任务&gt; 并发和串行主要影响：任务的执行方式&gt;</span><br><span class="line">- 并发：多个任务并发（同时）执行- 串行：一个任务执行完毕后，再执行下一个任务## 创建队列</span><br><span class="line"> </span><br><span class="line">### 并发队列</span><br><span class="line">&gt; dispatch_queue_create函数创建</span><br></pre></td></tr></table></figure></p>
-<p>dispatch_queue_t<br>dispatch_queue_create(const char *label, // 队列名称<br>dispatch_queue_attr_t attr); // 队列的类型</p>
-<p>创建并发队列<br>dispatch_queue_t queue = dispatch_queue_create(“SMDEV”, DISPATCH_QUEUE_CONCURRENT);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; dispatch_get_global_queue全局并发队列</span><br></pre></td></tr></table></figure></p>
-<p>dispatch_queue_t dispatch_get_global_queue(<br>dispatch_queue_priority_t priority, // 队列的优先级<br>unsigned long flags); // 此参数暂时无用，用0即可</p>
-<p>获得全局并发队列<br>dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 串行队列</span><br><span class="line">&gt; dispatch_queue_create函数创建</span><br></pre></td></tr></table></figure></p>
-<p>// 创建串行队列（队列类型传递NULL或者DISPATCH_QUEUE_SERIAL）<br>dispatch_queue_t queue = dispatch_queue_create(“SMDEV”, NULL);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt; dispatch_get_main_queue（主队列，里面的任务都会在主线程中执行）</span><br><span class="line"></span><br><span class="line">```dispatch_queue_t queue = dispatch_get_main_queue();</span><br></pre></td></tr></table></figure></p>
-<h3 id="执行效果"><a href="#执行效果" class="headerlink" title="执行效果"></a>执行效果</h3><p><img src="image/gcd-01.png" alt="执行效果"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">queue：队列 </span><br><span class="line">block：任务</span><br><span class="line"></span><br><span class="line">dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>异步的方式执行任务</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_async(dispatch_queue_t queue, dispatch_block_t block);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>阻挡的方式执行任务</li>
+</ul>
+<blockquote>
+<p>在前面的任务执行结束后它才执行，而且它后面的任务等它执行完成之后才会执行</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_barrier_async(dispatch_queue_t queue, dispatch_block_t block);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>同步和异步的区别</p>
+<ul>
+<li>同步：只能在当前线程中执行任务，不具备开启新线程的能力 </li>
+<li>异步：可以在新的线程中执行任务，具备开启新线程的能力</li>
+</ul>
+</blockquote>
+<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><blockquote>
+<p>用来存放任务</p>
+</blockquote>
+<ul>
+<li>并发队列<ul>
+<li>可以让多个任务并发（同时）执行（自动开启多个线程同时执行任务）</li>
+<li>并发功能只有在异步（dispatch_async）函数下才有效</li>
+</ul>
+</li>
+<li>串行队列<ul>
+<li>让任务一个接着一个地执行（一个任务执行完毕后，再执行下一个任务）</li>
+</ul>
+</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>同步和异步主要影响：能不能开启新的线程</p>
+<ul>
+<li>同步：只是在当前线程中执行任务，不具备开启新线程的能力。在遇到新的任务时，马上就在当前线程执行新的任务</li>
+<li>异步：可以在新的线程中执行任务，具备开启新线程的能力。遇到新的任务时，会让当前线程执行完任务，然后开启新的线程，执行新的任务</li>
+</ul>
+<p>并发和串行主要影响：任务的执行方式</p>
+<ul>
+<li>并发：多个任务并发（同时）执行</li>
+<li>串行：一个任务执行完毕后，再执行下一个任务</li>
+</ul>
+</blockquote>
+<h2 id="创建队列"><a href="#创建队列" class="headerlink" title="创建队列"></a>创建队列</h2><h3 id="并发队列"><a href="#并发队列" class="headerlink" title="并发队列"></a>并发队列</h3><blockquote>
+<p>dispatch_queue_create函数创建</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_tdispatch_queue_create(const char *label, // 队列名称 dispatch_queue_attr_t attr); // 队列的类型创建并发队列dispatch_queue_t queue = dispatch_queue_create(“SMDEV”, </span><br><span class="line">DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>dispatch_get_global_queue全局并发队列 </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dispatch_queue_t dispatch_get_global_queue(dispatch_queue_priority_t priority, // 队列的优先级unsigned long flags); // 此参数暂时无用，用0即可获得全局并发队列dispatch_queue_t queue = dispatch_get_global_queue(</span><br><span class="line">DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);</span><br></pre></td></tr></table></figure>
+<h3 id="串行队列"><a href="#串行队列" class="headerlink" title="串行队列"></a>串行队列</h3><blockquote>
+<p>dispatch_queue_create函数创建</p>
+</blockquote>
+<pre><code>// 创建串行队列（队列类型传递NULL或者DISPATCH_QUEUE_SERIAL）
+dispatch_queue_t queue = dispatch_queue_create(&quot;SMDEV&quot;, NULL); 
+</code></pre><blockquote>
+<p>dispatch_get_main_queue（主队列，里面的任务都会在主线程中执行）</p>
+</blockquote>
+<pre><code>dispatch_queue_t queue = dispatch_get_main_queue();
+</code></pre><h3 id="执行效果"><a href="#执行效果" class="headerlink" title="执行效果"></a>执行效果</h3><p><img src="image/gcd-01.png" alt="执行效果"></p>
 <blockquote>
 <p>注意：如果使用同步函数中往串行队列中添加任务，会造成死循环</p>
 <p>原理：同步函数意味着一有新的任务，马上就执行；串行队列意味着所有任务必须严格按照先进先出，后进后出的顺序执行。于是就发生同步任务等串行队列，串行队列等同步任务的死循环。</p>
 </blockquote>
 <h2 id="线程通信"><a href="#线程通信" class="headerlink" title="线程通信"></a>线程通信</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;    // 执行耗时的异步操作...      dispatch_async(dispatch_get_main_queue(), ^&#123;        // 回到主线程，执行UI刷新操作        &#125;);&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="其他用法"><a href="#其他用法" class="headerlink" title="其他用法"></a>其他用法</h2><h3 id="延迟执行"><a href="#延迟执行" class="headerlink" title="延迟执行"></a>延迟执行</h3><pre><code>dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 *     NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    // 2秒后异步执行这里的代码...
+});
+</code></pre><h3 id="一次性代码"><a href="#一次性代码" class="headerlink" title="一次性代码"></a>一次性代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static dispatch_once_t onceToken;dispatch_once(&amp;onceToken, ^&#123;    // 只执行1次的代码(这里面默认是线程安全的)&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="队列组"><a href="#队列组" class="headerlink" title="队列组"></a>队列组</h3><blockquote>
+<p>首先：分别异步执行2个耗时的操作<br>其次：等2个异步操作都执行完毕后，再回到主线程执行操作</p>
+</blockquote>
+<pre><code>dispatch_group_t group =  dispatch_group_create();
+dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    // 执行1个耗时的异步操作
+});
+dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    // 执行1个耗时的异步操作
+});
+dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+    // 等前面的异步操作都执行完毕后，回到主线程...
+});
+</code></pre>
       
     </div>
 
@@ -522,7 +595,7 @@ GCD会自动管理线程的生命周期（创建线程、调度任务、销毁�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GCD是什么"><span class="nav-number">1.</span> <span class="nav-text">GCD是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务与队列"><span class="nav-number">2.</span> <span class="nav-text">任务与队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#任务"><span class="nav-number">2.1.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行效果"><span class="nav-number">2.2.</span> <span class="nav-text">执行效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程通信"><span class="nav-number">3.</span> <span class="nav-text">线程通信</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GCD是什么"><span class="nav-number">1.</span> <span class="nav-text">GCD是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任务与队列"><span class="nav-number">2.</span> <span class="nav-text">任务与队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#任务"><span class="nav-number">2.1.</span> <span class="nav-text">任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列"><span class="nav-number">2.2.</span> <span class="nav-text">队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">2.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建队列"><span class="nav-number">3.</span> <span class="nav-text">创建队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#并发队列"><span class="nav-number">3.1.</span> <span class="nav-text">并发队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#串行队列"><span class="nav-number">3.2.</span> <span class="nav-text">串行队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行效果"><span class="nav-number">3.3.</span> <span class="nav-text">执行效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程通信"><span class="nav-number">4.</span> <span class="nav-text">线程通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他用法"><span class="nav-number">5.</span> <span class="nav-text">其他用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟执行"><span class="nav-number">5.1.</span> <span class="nav-text">延迟执行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一次性代码"><span class="nav-number">5.2.</span> <span class="nav-text">一次性代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#队列组"><span class="nav-number">5.3.</span> <span class="nav-text">队列组</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

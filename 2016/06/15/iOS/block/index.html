@@ -100,7 +100,7 @@
 2.如果对block进行copy操作，block就存储于堆空间
 3.如果block存储于栈空间，不会对block内部所用到的对象产生强引用
 4.">
-<meta property="og:updated_time" content="2016-08-28T07:19:34.000Z">
+<meta property="og:updated_time" content="2016-09-02T12:05:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Block">
 <meta name="twitter:description" content="简介Block本质上是指向一个结构体的指针。Block可以形象的比作一个函数体。使用代Block你可以像调用其他标准函数一样，传入参数数，并得到返回值。但是它远比函数更加强大。
@@ -351,7 +351,7 @@
 <p>.m文件</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 当view即将消失时，调用block</span><br><span class="line">- (void)viewWillDisappear:(BOOL)animated &#123;</span><br><span class="line">  </span><br><span class="line">  if (self.textBlock != nil) &#123;</span><br><span class="line">    self.textBlock(self.inputTF.text);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>A控制器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">TextFieldViewController *tfVC = segue.destinationViewController;</span><br><span class="line"> </span><br><span class="line">// 控制器跳转前，为下一个控制器的Block定义回调的操作  </span><br><span class="line">tfVC.textBlock = ^(NSString *showText)&#123;</span><br><span class="line">    self.showLabel.text = showText;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">TextFieldViewController *tfVC = segue.destinationViewController;</span><br><span class="line">__weak typeof(self) weakSelf = self;</span><br><span class="line">// 控制器跳转前，为下一个控制器的Block定义回调的操作  </span><br><span class="line">tfVC.textBlock = ^(NSString *showText)&#123;</span><br><span class="line">    weakSelf.showLabel.text = showText;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>逻辑整理：在A控制器中事先定义好需要在B控制器执行的操作，然后B在恰当的时机进行调用。</p>
 </blockquote>

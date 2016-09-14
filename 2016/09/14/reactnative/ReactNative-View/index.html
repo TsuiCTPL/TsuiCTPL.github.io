@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="语法," />
+  <meta name="keywords" content="ReactNative," />
 
 
 
@@ -84,43 +84,34 @@
 
 
 
-<meta name="description" content="字符串拼接
-使用”.”连接
+<meta name="description" content="一、 JSX和组件的概念React的核心机制之一就是虚拟DOM：可以在内存中创建的虚拟DOM元素。React利用虚拟DOM来减少对实际DOM的操作从而提升性能。传统的创建方式是：
 
-123$str1 = &apos;qqqq&apos;;$str2 = &apos;www&apos;;   echo $str1 . $str2;
-数组
-如果key相同,那么以最后一个为准
-如果没有定义key,那么系统默认从0开始
-如果在某个位置定义了key,那么后面对应的+1
+但这样的代码可读性并不好，于是React发明了JSX，利用我们熟悉的HTML语法来创建虚拟DOM： 
 
-1234567$arr = array(&quot;iiiii&quot;, &quot;999&quot; =&amp;gt; &quot;oooo&quot;,  &quot;sssss&quot;);// 打">
+在实际开发中，JSX在产品打包阶段都已经编译成纯JavaScript，JSX的语法不会带来任何性能影响。因此，JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP入门">
-<meta property="og:url" content="http://yoursite.com/2016/06/05/php/php/index.html">
+<meta property="og:title" content="React Native常用组件之View">
+<meta property="og:url" content="http://yoursite.com/2016/09/14/reactnative/ReactNative-View/index.html">
 <meta property="og:site_name" content="Tsui的个人博客">
-<meta property="og:description" content="字符串拼接
-使用”.”连接
+<meta property="og:description" content="一、 JSX和组件的概念React的核心机制之一就是虚拟DOM：可以在内存中创建的虚拟DOM元素。React利用虚拟DOM来减少对实际DOM的操作从而提升性能。传统的创建方式是：
 
-123$str1 = &apos;qqqq&apos;;$str2 = &apos;www&apos;;   echo $str1 . $str2;
-数组
-如果key相同,那么以最后一个为准
-如果没有定义key,那么系统默认从0开始
-如果在某个位置定义了key,那么后面对应的+1
+但这样的代码可读性并不好，于是React发明了JSX，利用我们熟悉的HTML语法来创建虚拟DOM： 
 
-1234567$arr = array(&quot;iiiii&quot;, &quot;999&quot; =&amp;gt; &quot;oooo&quot;,  &quot;sssss&quot;);// 打">
-<meta property="og:updated_time" content="2016-08-27T00:30:20.000Z">
+在实际开发中，JSX在产品打包阶段都已经编译成纯JavaScript，JSX的语法不会带来任何性能影响。因此，JS">
+<meta property="og:image" content="http://yoursite.com/image/rn-view-01.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-view-02.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-view-02.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-view-04.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-view-05.png">
+<meta property="og:updated_time" content="2016-09-14T13:35:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP入门">
-<meta name="twitter:description" content="字符串拼接
-使用”.”连接
+<meta name="twitter:title" content="React Native常用组件之View">
+<meta name="twitter:description" content="一、 JSX和组件的概念React的核心机制之一就是虚拟DOM：可以在内存中创建的虚拟DOM元素。React利用虚拟DOM来减少对实际DOM的操作从而提升性能。传统的创建方式是：
 
-123$str1 = &apos;qqqq&apos;;$str2 = &apos;www&apos;;   echo $str1 . $str2;
-数组
-如果key相同,那么以最后一个为准
-如果没有定义key,那么系统默认从0开始
-如果在某个位置定义了key,那么后面对应的+1
+但这样的代码可读性并不好，于是React发明了JSX，利用我们熟悉的HTML语法来创建虚拟DOM： 
 
-1234567$arr = array(&quot;iiiii&quot;, &quot;999&quot; =&amp;gt; &quot;oooo&quot;,  &quot;sssss&quot;);// 打">
+在实际开发中，JSX在产品打包阶段都已经编译成纯JavaScript，JSX的语法不会带来任何性能影响。因此，JS">
+<meta name="twitter:image" content="http://yoursite.com/image/rn-view-01.png">
 
 
 
@@ -141,9 +132,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/06/05/php/php/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/14/reactnative/ReactNative-View/"/>
 
-  <title> PHP入门 | Tsui的个人博客 </title>
+  <title> React Native常用组件之View | Tsui的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +264,7 @@
             
             
               
-                PHP入门
+                React Native常用组件之View
               
             
           </h1>
@@ -285,8 +276,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-06-05T19:26:14+08:00" content="2016-06-05">
-              2016-06-05
+            <time itemprop="dateCreated" datetime="2016-09-14T21:20:02+08:00" content="2016-09-14">
+              2016-09-14
             </time>
           </span>
 
@@ -299,8 +290,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
                   </a>
                 </span>
 
@@ -332,33 +323,50 @@
       
 
       
-        <h3 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h3><blockquote>
-<p>使用”.”连接</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$str1 = <span class="string">'qqqq'</span>;</span><br><span class="line">$str2 = <span class="string">'www'</span>;   </span><br><span class="line"><span class="keyword">echo</span> $str1 . $str2;</span><br></pre></td></tr></table></figure>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
-<p>如果key相同,那么以最后一个为准</p>
-<p>如果没有定义key,那么系统默认从0开始</p>
-<p>如果在某个位置定义了key,那么后面对应的+1</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"iiiii"</span>, <span class="string">"999"</span> =&gt; <span class="string">"oooo"</span>,  <span class="string">"sssss"</span>);</span><br><span class="line"><span class="comment">// 打印数组</span></span><br><span class="line">print_r($arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入某个元素:用key控制,并且key最好用双引号裹起来</span></span><br><span class="line"><span class="keyword">echo</span> $arr[<span class="string">"1000"</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="获取get表单数据"><a href="#获取get表单数据" class="headerlink" title="获取get表单数据"></a>获取get表单数据</h3><blockquote>
-<p>地址栏上的参数将存储在一个叫_GET的数组中</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"你正在浏览第"</span>, $_GET[<span class="string">"tid"</span>], <span class="string">"个帖子”;</span></span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="获取判断类型"><a href="#获取判断类型" class="headerlink" title="获取判断类型"></a>获取判断类型</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">is_int</span><br><span class="line">is_float </span><br><span class="line">is_bool </span><br><span class="line">is_string</span><br><span class="line">is_object</span><br><span class="line"><span class="comment">// 获取变量的类型</span></span><br><span class="line">gettype()</span><br></pre></td></tr></table></figure>
-<h3 id="变量检测"><a href="#变量检测" class="headerlink" title="变量检测"></a>变量检测</h3><blockquote>
-<p>isset可以检测变量是否存在</p>
+        <h2 id="一、-JSX和组件的概念"><a href="#一、-JSX和组件的概念" class="headerlink" title="一、 JSX和组件的概念"></a>一、 JSX和组件的概念</h2><p>React的核心机制之一就是虚拟DOM：可以在内存中创建的虚拟DOM元素。React利用虚拟DOM来减少对实际DOM的操作从而提升性能。传统的创建方式是：</p>
+<p><img src="image/rn-view-01.png" alt="View-01"></p>
+<p>但这样的代码可读性并不好，于是React发明了JSX，利用我们熟悉的HTML语法来创建虚拟DOM： </p>
+<p><img src="image/rn-view-02.png" alt="View-01"></p>
+<p>在实际开发中，JSX在产品打包阶段都已经编译成纯JavaScript，JSX的语法不会带来任何性能影响。因此，JSX本身并不是什么高深的技术，可以说只是一个比较高级但很直观的语法糖。   </p>
+<h2 id="二、-View组件中常见的属性"><a href="#二、-View组件中常见的属性" class="headerlink" title="二、 View组件中常见的属性"></a>二、 View组件中常见的属性</h2><p>React Native组件View，其作用等同于iOS中的UIView, Android中的android.view，或是网页中的&lt;’div’&gt;标签，它是所有组件的父组件。</p>
 <blockquote>
-<p>注意：对于NULL，isset也返回false</p>
+<p>Flexbox 弹性布局</p>
+<p>Transforms  动画属性</p>
+<p>backfaceVisibility enum(‘visible’, ‘hidden’)    定义界面翻转的时候是否可见</p>
+<p>backgroundColor color</p>
+<p>borderBottomColor color</p>
+<p>borderBottomLeftRadius number</p>
+<p>borderBottomRightRadius number</p>
+<p>borderBottomWidth number</p>
+<p>borderColor color</p>
+<p>borderLeftColor color</p>
+<p>borderLeftWidth number</p>
+<p>borderRadius number</p>
+<p>borderRightColor color</p>
+<p>borderRightWidth number</p>
+<p>borderStyle enum(‘solid’, ‘dotted’, ‘dashed’)</p>
+<p>borderTopColor color</p>
+<p>borderTopLeftRadius number</p>
+<p>borderTopRightRadius number</p>
+<p>borderTopWidth number</p>
+<p>borderWidth number</p>
 </blockquote>
+<p>vopacity number 设置透明度，取值从0-1；</p>
+<blockquote>
+<p>overflow enum(‘visible’, ‘hidden’)  设置内容超出容器部分是显示还是隐藏；</p>
+<p>elevation number 高度   设置Z轴，可产生立体效果。</p>
 </blockquote>
-<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><blockquote>
-<p>字符串转数字</p>
-<pre><code>- 从左到右截取，直到碰见不合法的字符，截取出来当数字
-</code></pre></blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$a1 = <span class="string">"hello"</span>;</span><br><span class="line">$a2 = <span class="string">"22hh"</span>;</span><br><span class="line">$b = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">echo</span> $a1 + $b;  <span class="comment">// 3</span></span><br><span class="line"><span class="keyword">echo</span> $a2 + $b;  <span class="comment">// 25;</span></span><br></pre></td></tr></table></figure>
+<h2 id="三、-View组件运用"><a href="#三、-View组件运用" class="headerlink" title="三、 View组件运用"></a>三、 View组件运用</h2><p>下图就是View的基本运用：</p>
+<p><img src="image/rn-view-02.png" alt="View-01"></p>
+<p>在图中的render函数中，我们返回了一个顶层的View，然后View中包含着另一个子层的View。</p>
+<p>在顶层的View中的style属性里面设置了其占满父控件，内边距为30，背景颜色为黄色 ；对应子层中的View的style属性中设置了宽度300，高度50，背景色为红色。 这是我们熟悉的css写法。</p>
+<p>运行结果如下：</p>
+<p><img src="image/rn-view-04.png" alt="View-01"></p>
+<p>在React Native开发中，更加推荐我们采用StyleSheet来进行组件的布局，这样的话，代码在结构上会更加的清晰、也有利于后期维护。</p>
+<p>下面我们采用StyleSheet来实现一下:</p>
+<p><img src="image/rn-view-05.png" alt="View-01"></p>
+<p>当然，在开发中会根据具体情况来灵活运用。</p>
+<p>######(本博客中关于RN的教程网文章均转载自旋之华微信公众号)</p>
 
       
     </div>
@@ -381,7 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/语法/" rel="tag">#语法</a>
+            <a href="/tags/ReactNative/" rel="tag">#ReactNative</a>
           
         </div>
       
@@ -390,17 +398,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/20/iOS/runtime/" rel="next" title="Runtime">
-                <i class="fa fa-chevron-left"></i> Runtime
+              <a href="/2016/08/28/iOS/calendar/" rel="next" title="自定义日历View">
+                <i class="fa fa-chevron-left"></i> 自定义日历View
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/05/hexo/hexobuild/" rel="prev" title="搭建基于hexo的个人博客">
-                搭建基于hexo的个人博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -525,7 +529,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串拼接"><span class="nav-number">1.</span> <span class="nav-text">字符串拼接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取get表单数据"><span class="nav-number">3.</span> <span class="nav-text">获取get表单数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取判断类型"><span class="nav-number">4.</span> <span class="nav-text">获取判断类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量检测"><span class="nav-number">5.</span> <span class="nav-text">变量检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">6.</span> <span class="nav-text">类型转换</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、-JSX和组件的概念"><span class="nav-number">1.</span> <span class="nav-text">一、 JSX和组件的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、-View组件中常见的属性"><span class="nav-number">2.</span> <span class="nav-text">二、 View组件中常见的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、-View组件运用"><span class="nav-number">3.</span> <span class="nav-text">三、 View组件运用</span></a></li></ol></div>
             
           </div>
         </section>

@@ -310,53 +310,17 @@
 
       
         
-          
-            <h2 id="一、-JSX和组件的概念"><a href="#一、-JSX和组件的概念" class="headerlink" title="一、 JSX和组件的概念"></a>一、 JSX和组件的概念</h2><p>React的核心机制之一就是虚拟DOM：可以在内存中创建的虚拟DOM元素。React利用虚拟DOM来减少对实际DOM的操作从而提升性能。传统的创建方式是：</p>
+          <h2 id="一、-JSX和组件的概念"><a href="#一、-JSX和组件的概念" class="headerlink" title="一、 JSX和组件的概念"></a>一、 JSX和组件的概念</h2><p>React的核心机制之一就是虚拟DOM：可以在内存中创建的虚拟DOM元素。React利用虚拟DOM来减少对实际DOM的操作从而提升性能。传统的创建方式是：</p>
 <p><img src="image/rn-view-01.png" alt="View-01"></p>
 <p>但这样的代码可读性并不好，于是React发明了JSX，利用我们熟悉的HTML语法来创建虚拟DOM： </p>
-<p><img src="image/rn-view-02.png" alt="View-01"></p>
+<p><img src="image/rn-view-02.png" alt="View-02"></p>
 <p>在实际开发中，JSX在产品打包阶段都已经编译成纯JavaScript，JSX的语法不会带来任何性能影响。因此，JSX本身并不是什么高深的技术，可以说只是一个比较高级但很直观的语法糖。   </p>
 <h2 id="二、-View组件中常见的属性"><a href="#二、-View组件中常见的属性" class="headerlink" title="二、 View组件中常见的属性"></a>二、 View组件中常见的属性</h2><p>React Native组件View，其作用等同于iOS中的UIView, Android中的android.view，或是网页中的&lt;’div’&gt;标签，它是所有组件的父组件。</p>
-<blockquote>
-<p>Flexbox 弹性布局</p>
-<p>Transforms  动画属性</p>
-<p>backfaceVisibility enum(‘visible’, ‘hidden’)    定义界面翻转的时候是否可见</p>
-<p>backgroundColor color</p>
-<p>borderBottomColor color</p>
-<p>borderBottomLeftRadius number</p>
-<p>borderBottomRightRadius number</p>
-<p>borderBottomWidth number</p>
-<p>borderColor color</p>
-<p>borderLeftColor color</p>
-<p>borderLeftWidth number</p>
-<p>borderRadius number</p>
-<p>borderRightColor color</p>
-<p>borderRightWidth number</p>
-<p>borderStyle enum(‘solid’, ‘dotted’, ‘dashed’)</p>
-<p>borderTopColor color</p>
-<p>borderTopLeftRadius number</p>
-<p>borderTopRightRadius number</p>
-<p>borderTopWidth number</p>
-<p>borderWidth number</p>
-</blockquote>
-<p>vopacity number 设置透明度，取值从0-1；</p>
-<blockquote>
-<p>overflow enum(‘visible’, ‘hidden’)  设置内容超出容器部分是显示还是隐藏；</p>
-<p>elevation number 高度   设置Z轴，可产生立体效果。</p>
-</blockquote>
-<h2 id="三、-View组件运用"><a href="#三、-View组件运用" class="headerlink" title="三、 View组件运用"></a>三、 View组件运用</h2><p>下图就是View的基本运用：</p>
-<p><img src="image/rn-view-02.png" alt="View-01"></p>
-<p>在图中的render函数中，我们返回了一个顶层的View，然后View中包含着另一个子层的View。</p>
-<p>在顶层的View中的style属性里面设置了其占满父控件，内边距为30，背景颜色为黄色 ；对应子层中的View的style属性中设置了宽度300，高度50，背景色为红色。 这是我们熟悉的css写法。</p>
-<p>运行结果如下：</p>
-<p><img src="image/rn-view-04.png" alt="View-01"></p>
-<p>在React Native开发中，更加推荐我们采用StyleSheet来进行组件的布局，这样的话，代码在结构上会更加的清晰、也有利于后期维护。</p>
-<p>下面我们采用StyleSheet来实现一下:</p>
-<p><img src="image/rn-view-05.png" alt="View-01"></p>
-<p>当然，在开发中会根据具体情况来灵活运用。</p>
-<p>######(本博客中关于RN的教程网文章均转载自旋之华微信公众号)</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/14/reactnative/ReactNative-View/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

@@ -123,7 +123,7 @@ FlexBox布局FlexBox是什么意">
 <meta property="og:image" content="http://yoursite.com/image/rn-flexbox-25.png">
 <meta property="og:image" content="http://yoursite.com/image/rn-flexbox-26.png">
 <meta property="og:image" content="http://yoursite.com/image/rn-flexbox-27.png">
-<meta property="og:updated_time" content="2016-09-15T13:34:15.000Z">
+<meta property="og:updated_time" content="2016-09-15T13:40:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React Native常用组件之FlexBox布局">
 <meta name="twitter:description" content="在前面的案例中，界面的搭建都是采用CSS的布局，基于盒子模型，依赖 display属性 ， position属性， float属性。但对于那些特殊布局非常不方便，比如，垂直居中。
@@ -352,6 +352,7 @@ box（名词）：通用的矩形容器
 <p>Flex布局主要思想是：让容器有能力让其子项目能够改变其宽度、高度（甚至是顺序），以最佳方式填充可用空间；</p>
 <p>React native中的FlexBox是这个规范的一个子集。</p>
 <h3 id="大部分情况下是处理图中FlexItem在FlexContainer中的位置和尺寸关系"><a href="#大部分情况下是处理图中FlexItem在FlexContainer中的位置和尺寸关系" class="headerlink" title="大部分情况下是处理图中FlexItem在FlexContainer中的位置和尺寸关系"></a>大部分情况下是处理图中FlexItem在FlexContainer中的位置和尺寸关系</h3><p><img src="image/rn-flexbox-02.png" alt="View-01"></p>
+<a id="more"></a>
 <h2 id="Flexbox在开发中的应用场景"><a href="#Flexbox在开发中的应用场景" class="headerlink" title="Flexbox在开发中的应用场景"></a>Flexbox在开发中的应用场景</h2><h3 id="Flexbox在布局中能够解决什么问题？"><a href="#Flexbox在布局中能够解决什么问题？" class="headerlink" title="Flexbox在布局中能够解决什么问题？"></a>Flexbox在布局中能够解决什么问题？</h3><blockquote>
 <p>浮动布局</p>
 <p>各种机型屏幕的适配</p>
@@ -359,8 +360,7 @@ box（名词）：通用的矩形容器
 <p>自动分配宽度</p>
 <p>……</p>
 </blockquote>
-<h3 id="在CSS中，常规的布局是基于块和内联流方向，而Flex布局是基于flex-flow流-下图很好解释了Flex布局的思想："><a href="#在CSS中，常规的布局是基于块和内联流方向，而Flex布局是基于flex-flow流-下图很好解释了Flex布局的思想：" class="headerlink" title="在CSS中，常规的布局是基于块和内联流方向，而Flex布局是基于flex-flow流,下图很好解释了Flex布局的思想："></a>在CSS中，常规的布局是基于块和内联流方向，而Flex布局是基于flex-flow流,下图很好解释了Flex布局的思想：</h3><a id="more"></a>
-<p><img src="image/rn-flexbox-03.png" alt="View-01"></p>
+<h3 id="在CSS中，常规的布局是基于块和内联流方向，而Flex布局是基于flex-flow流-下图很好解释了Flex布局的思想："><a href="#在CSS中，常规的布局是基于块和内联流方向，而Flex布局是基于flex-flow流-下图很好解释了Flex布局的思想：" class="headerlink" title="在CSS中，常规的布局是基于块和内联流方向，而Flex布局是基于flex-flow流,下图很好解释了Flex布局的思想："></a>在CSS中，常规的布局是基于块和内联流方向，而Flex布局是基于flex-flow流,下图很好解释了Flex布局的思想：</h3><p><img src="image/rn-flexbox-03.png" alt="View-01"></p>
 <p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。</p>
 <p>项目默认沿主轴排列，单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。</p>
 <h3 id="根据伸缩项目排列方式的不同，主轴和侧轴方向也有所变化："><a href="#根据伸缩项目排列方式的不同，主轴和侧轴方向也有所变化：" class="headerlink" title="根据伸缩项目排列方式的不同，主轴和侧轴方向也有所变化："></a>根据伸缩项目排列方式的不同，主轴和侧轴方向也有所变化：</h3><p><img src="image/rn-flexbox-04.png" alt="View-01"></p>

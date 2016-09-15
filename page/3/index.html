@@ -248,6 +248,134 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/14/objc/kvc-kvo/" itemprop="url">
+                  KVC,KVO详解
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-14T20:51:18+08:00" content="2016-04-14">
+              2016-04-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="KVO（键值监听）"><a href="#KVO（键值监听）" class="headerlink" title="KVO（键值监听）"></a>KVO（键值监听）</h2><blockquote>
+<p>作用：用于做属性监听，也可以利用属性set方法在内部监听</p>
+</blockquote>
+<h3 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h3><blockquote>
+<ul>
+<li>KVO是基于runtime机制实现的</li>
+<li>当某个类的对象第一次被观察时,系统就会在运行期动态地创建该类的一个派生类，在这个派生类中重写基类中任何被观察属性的 setter 方法。</li>
+<li>派生类在被重写的 setter 方法实现真正的通知机制（Personà NSKVONotifying_Person）</li>
+</ul>
+</blockquote>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><ul>
+<li>1.2.1 替属性注册监听</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (void)KVO</span><br><span class="line">&#123;</span><br><span class="line">    Person *p = [[Person alloc] init];</span><br><span class="line">    p.age = 30;</span><br><span class="line"></span><br><span class="line">    // 注册属性监听</span><br><span class="line">    [p addObserver:self forKeyPath:@&quot;age&quot; options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];</span><br><span class="line"></span><br><span class="line">    p.age = 30;</span><br><span class="line">    p.age = 40;</span><br><span class="line"></span><br><span class="line">    self.p = p;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/14/objc/kvc-kvo/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/17/iOS/MemoryManager/" itemprop="url">
                   iOS内存管理（转载）
                 </a>
@@ -411,7 +539,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

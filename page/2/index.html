@@ -743,8 +743,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/05/php/php/" itemprop="url">
-                  PHP入门
+                <a class="post-title-link" href="/2016/06/05/hexo/hexobuild/" itemprop="url">
+                  搭建基于hexo的个人博客
                 </a>
               
             
@@ -771,8 +771,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
                   </a>
                 </span>
 
@@ -805,22 +805,21 @@
 
       
         
-          <h3 id="字符串拼接"><a href="#字符串拼接" class="headerlink" title="字符串拼接"></a>字符串拼接</h3><blockquote>
-<p>使用”.”连接</p>
+          <blockquote>
+<p>写在前面：</p>
 </blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$str1 = <span class="string">'qqqq'</span>;</span><br><span class="line">$str2 = <span class="string">'www'</span>;   </span><br><span class="line"><span class="keyword">echo</span> $str1 . $str2;</span><br></pre></td></tr></table></figure>
-<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><blockquote>
-<p>如果key相同,那么以最后一个为准</p>
-<p>如果没有定义key,那么系统默认从0开始</p>
-<p>如果在某个位置定义了key,那么后面对应的+1</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="string">"iiiii"</span>, <span class="string">"999"</span> =&gt; <span class="string">"oooo"</span>,  <span class="string">"sssss"</span>);</span><br><span class="line"><span class="comment">// 打印数组</span></span><br><span class="line">print_r($arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输入某个元素:用key控制,并且key最好用双引号裹起来</span></span><br><span class="line"><span class="keyword">echo</span> $arr[<span class="string">"1000"</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="获取get表单数据"><a href="#获取get表单数据" class="headerlink" title="获取get表单数据"></a>获取get表单数据</h3><blockquote>
-<p>地址栏上的参数将存储在一个叫_GET的数组中</p>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"你正在浏览第"</span>, $_GET[<span class="string">"tid"</span>], <span class="string">"个帖子”;</span></span><br></pre></td></tr></table></figure>
+<p>首先，这个教程是我自己安装一遍之后写的，所以里面的一些坑也走过，于是总结出了下面的步骤，希望你们少走弯路。</p>
+<p>其次，因为是第一次安装，所以是参考了别人的教程做的，但是按照自己的理解之后，重新编排了步骤，使之更容易安装成功</p>
+<p>最后，希望看完这边教程之后，你们也可以有一个属于自己的blog</p>
+<blockquote>
+<h3 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h3></blockquote>
+<p>作用：用来生成静态页面的</p>
+<p>注意：直接去人家官网下载，但是速度可能会慢一些</p>
+<blockquote>
+<h3 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h3></blockquote>
+<p>作用：把本地的hexo内容提交到github上去.<br>注意：在mac平台上，如果已经安装Xcode，那么可忽略此步骤</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/05/php/php/#more" rel="contents">
+            <a class="btn" href="/2016/06/05/hexo/hexobuild/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

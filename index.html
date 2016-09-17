@@ -248,6 +248,252 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/17/reactnative/ReactNative-Image/" itemprop="url">
+                  React Native常用组件之Image
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T21:23:55+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在开发中还有一个非常重要的组件Image，通过这个组件可以展示各种各样的图片，而且在React Native中该组件可以通过多种方式加载图片资源。</p>
+<h2 id="Image组件的基本用法"><a href="#Image组件的基本用法" class="headerlink" title="Image组件的基本用法"></a>Image组件的基本用法</h2><h3 id="从当前项目中加载图片"><a href="#从当前项目中加载图片" class="headerlink" title="从当前项目中加载图片"></a>从当前项目中加载图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">    &lt;Text style=&#123;styles.textMarginTop&#125;&gt;加载本地的图片&lt;/Text&gt;</span><br><span class="line">    &lt;Image source=&#123;require(&apos;./img/2.png&apos;)&#125; style=&#123;&#123;width: 120, height: 120&#125;&#125;  /&gt;</span><br><span class="line"> &lt;/View&gt;</span><br></pre></td></tr></table></figure>
+<p>该图片资源文件的查找和JS模块相似，该会根据填写的图片路径相对于当前的js文件路径进行搜索。</p>
+<p>此外，React Naive的Packager会根据平台选择相应的文件，例如:my_icon.ios.png和my_icon.android.png两个文件(命名方式android或者ios)，会分别根据android或者ios平台选择相应的文件。</p>
+<h3 id="加载使用APP中的图片"><a href="#加载使用APP中的图片" class="headerlink" title="加载使用APP中的图片"></a>加载使用APP中的图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">    &lt;Text style=&#123;styles.textMarginTop&#125;&gt;加载Xcode中的图片&lt;/Text&gt;</span><br><span class="line">    &lt;Image source=&#123;require(&apos;image!icon_homepage_map&apos;)&#125; style=&#123;&#123;width: 50,height:50&#125;&#125;/&gt;</span><br><span class="line">&lt;/View&gt;</span><br></pre></td></tr></table></figure>
+<p>使用已经打包在APP中的图片资源(例如:xcode asset文件夹以及Android drawable文件夹)</p>
+<h3 id="加载来自网络的图片"><a href="#加载来自网络的图片" class="headerlink" title="加载来自网络的图片"></a>加载来自网络的图片</h3><p>客户端的很多图片资源基本上都是实时通过网络进行获取的，写法和上面的加载本地资源图片的方式不太一样，这边一定需要指定图片的尺寸大小，实现如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">      &lt;Image source=&#123;&#123;uri:&apos;https://www.baidu.com/img/bd_logo1.png&apos;&#125;&#125; style=&#123;&#123;flex:1,width:200, height:100, resizeMode: Image.resizeMode.cover&#125;&#125;/&gt;</span><br><span class="line">      &lt;Image source=&#123;&#123;uri:&apos;https://www.baidu.com/img/bd_logo1.png&apos;&#125;&#125; style=&#123;&#123;flex:1,width:200, height:100, resizeMode: Image.resizeMode.contain&#125;&#125;/&gt;</span><br><span class="line">      &lt;Image source=&#123;&#123;uri:&apos;https://www.baidu.com/img/bd_logo1.png&apos;&#125;&#125; style=&#123;&#123;flex:1,width:200, height:100, resizeMode: Image.resizeMode.stretch&#125;&#125;&gt;</span><br><span class="line">&lt;/View&gt;</span><br></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/17/reactnative/ReactNative-Image/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/17/reactnative/ReactNative-Text/" itemprop="url">
+                  React Native常用组件之Text
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-17T21:16:41+08:00" content="2016-09-17">
+              2016-09-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="什么是Text组件？"><a href="#什么是Text组件？" class="headerlink" title="什么是Text组件？"></a>什么是Text组件？</h2><p>一个用于显示文本的React组件，和Android中的TextView组件或者OC中的Label组件相类似，专门用来显示基本的文本信息；除了基本的显示布局之外，可以进行嵌套显示，设置样式，以及可以做事件(例如:点击)处理；</p>
+<h2 id="Text组件常用的属性方法"><a href="#Text组件常用的属性方法" class="headerlink" title="Text组件常用的属性方法"></a>Text组件常用的属性方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Attributes.style = &#123;</span><br><span class="line">    color string</span><br><span class="line">    containerBackgroundColor string</span><br><span class="line">    fontFamily string</span><br><span class="line">    fontSize number</span><br><span class="line">    fontStyle enum(&apos;normal&apos;, &apos;italic&apos;)</span><br><span class="line">    fontWeight enum(&quot;normal&quot;, &apos;bold&apos;, &apos;100&apos;, &apos;200&apos;, &apos;300&apos;, &apos;400&apos;, &apos;500&apos;, &apos;600&apos;, &apos;700&apos;, &apos;800&apos;, &apos;900&apos;)</span><br><span class="line">    lineHeight number</span><br><span class="line">    textAlign enum(&quot;auto&quot;, &apos;left&apos;, &apos;right&apos;, &apos;center&apos;)</span><br><span class="line">    writingDirection enum(&quot;auto&quot;, &apos;ltr&apos;, &apos;rtl&apos;)</span><br><span class="line">    numberOfLines number</span><br><span class="line">    textAlign (&quot;auto&quot;, &apos;left&apos;, &apos;right&apos;, &apos;center&apos;, &apos;justify&apos;)</span><br><span class="line">    fontWeight (&quot;normal&quot;, &apos;bold&apos;, &apos;100&apos;, &apos;200&apos;, &apos;300&apos;, &apos;400&apos;, &apos;500&apos;, &apos;600&apos;, &apos;700&apos;, &apos;800&apos;, &apos;900&apos;)</span><br><span class="line">    onPress  fcuntion</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>注释如下：</p>
+<p><code>color</code> 字体颜色</p>
+<p> <code>numberOfLines</code> (number) 进行设置Text显示文本的行数，如果显示的内容超过了行数，默认其他多余的信息就不会显示了</p>
+<p><code>onPress</code> (fcuntion)  该方法当文本发生点击的时候调用该方法</p>
+<p> <code>color</code>  字体颜色</p>
+<p><code>fontFamily</code>  字体名称</p>
+<p><code>fontSize</code>  字体大小</p>
+<p><code>fontStyle</code>   字体风格(normal,italic)</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/17/reactnative/ReactNative-Text/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/15/reactnative/ReactNative-Flexbox/" itemprop="url">
                   React Native常用组件之FlexBox布局
                 </a>
@@ -590,257 +836,6 @@ box（名词）：通用的矩形容器
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/27/iOS/popview/" itemprop="url">
-                  自定义气泡弹窗控件(popView)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-27T13:05:52+08:00" content="2016-08-27">
-              2016-08-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>在开发中，经常会遇见点击某个按钮，弹出一个类似对话框的界面，但对话框往往过于简单，所以就出现了微博，QQ，微信上的气泡View，有多个选项，同时有图片和文字。于是就封装了popView自定义控件。</p>
-</blockquote>
-<h2 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h2><p><img src="image/popView-01.png" alt="自定义popView效果图">  </p>
-<h2 id="快速集成"><a href="#快速集成" class="headerlink" title="快速集成"></a>快速集成</h2><ul>
-<li>让控制器成为其代理</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (void)initPopView</span><br><span class="line">&#123;</span><br><span class="line">    // 创建popView</span><br><span class="line">    SMPopView *popView = [SMPopView popViewForTitles:@[@&quot;相册&quot;,@&quot;文章列表&quot;, @&quot;点赞&quot;, @&quot;添加好友&quot;] withImages:@[@&quot;album&quot;, @&quot;draft&quot;, @&quot;like&quot;, @&quot;new_friend&quot;]];</span><br><span class="line">    popView.delegate = self;</span><br><span class="line">    self.popView = popView;</span><br><span class="line">    [self.view addSubview:popView];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="代理方法"><a href="#代理方法" class="headerlink" title="代理方法"></a>代理方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *  点击popView的item后的回调方法，传回Item的索引值</span><br><span class="line"> */</span><br><span class="line">- (void)popView:(SMPopView *)popView didClickItemIndex:(NSInteger)index</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@&quot;%zd&quot;, index);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/27/iOS/popview/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/13/iOS/gcd/" itemprop="url">
-                  GCD
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-13T14:12:51+08:00" content="2016-07-13">
-              2016-07-13
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="GCD是什么"><a href="#GCD是什么" class="headerlink" title="GCD是什么"></a>GCD是什么</h2><p>GCD的全称是Grand Central Dispatch，纯C语言。</p>
-<blockquote>
-<p>GCD会自动利用更多的CPU内核（比如双核、四核）</p>
-<p>GCD会自动管理线程的生命周期（创建线程、调度任务、销毁线程）</p>
-<p>程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码</p>
-</blockquote>
-<h2 id="任务与队列"><a href="#任务与队列" class="headerlink" title="任务与队列"></a>任务与队列</h2><h3 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h3><ul>
-<li>同步的方式执行任务</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">queue：队列 </span><br><span class="line">block：任务</span><br><span class="line"></span><br><span class="line">dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>异步的方式执行任务</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dispatch_async(dispatch_queue_t queue, dispatch_block_t block);</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/13/iOS/gcd/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -886,7 +881,7 @@ box（名词）：通用的矩形容器
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

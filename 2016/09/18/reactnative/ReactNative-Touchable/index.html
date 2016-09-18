@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,30 +84,25 @@
 
 
 
-<meta name="description" content="效果图
-使用方法
-通过类方法创建日历，添加到控制器view即可。可以自定义控制size
-
-1234CGRect frame = CGRectMake(10, 150, [UIScreen mainScreen].bounds.size.width - 2 * 10, [UIScreen mainScreen].bounds.size.width - 2 * 10 +50);SMCalendarVi">
+<meta name="description" content="title: React Native之常用Touchable系列组件tags: ReactNative
+category: ReactNative在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？
+高亮触摸  TouchableHighlight当手指点击按下的时候，该视图的不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义日历View">
-<meta property="og:url" content="http://yoursite.com/2016/08/28/iOS/calendar/index.html">
+<meta property="og:title" content="Tsui的个人博客">
+<meta property="og:url" content="http://yoursite.com/2016/09/18/reactnative/ReactNative-Touchable/index.html">
 <meta property="og:site_name" content="Tsui的个人博客">
-<meta property="og:description" content="效果图
-使用方法
-通过类方法创建日历，添加到控制器view即可。可以自定义控制size
-
-1234CGRect frame = CGRectMake(10, 150, [UIScreen mainScreen].bounds.size.width - 2 * 10, [UIScreen mainScreen].bounds.size.width - 2 * 10 +50);SMCalendarVi">
-<meta property="og:image" content="http://yoursite.com/image/calendar-01.png">
-<meta property="og:updated_time" content="2016-08-28T11:34:32.000Z">
+<meta property="og:description" content="title: React Native之常用Touchable系列组件tags: ReactNative
+category: ReactNative在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？
+高亮触摸  TouchableHighlight当手指点击按下的时候，该视图的不">
+<meta property="og:image" content="http://yoursite.com/image/rn-touchable-01.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-touchable-02.png">
+<meta property="og:updated_time" content="2016-09-18T13:39:09.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义日历View">
-<meta name="twitter:description" content="效果图
-使用方法
-通过类方法创建日历，添加到控制器view即可。可以自定义控制size
-
-1234CGRect frame = CGRectMake(10, 150, [UIScreen mainScreen].bounds.size.width - 2 * 10, [UIScreen mainScreen].bounds.size.width - 2 * 10 +50);SMCalendarVi">
-<meta name="twitter:image" content="http://yoursite.com/image/calendar-01.png">
+<meta name="twitter:title" content="Tsui的个人博客">
+<meta name="twitter:description" content="title: React Native之常用Touchable系列组件tags: ReactNative
+category: ReactNative在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？
+高亮触摸  TouchableHighlight当手指点击按下的时候，该视图的不">
+<meta name="twitter:image" content="http://yoursite.com/image/rn-touchable-01.png">
 
 
 
@@ -128,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/28/iOS/calendar/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/18/reactnative/ReactNative-Touchable/"/>
 
-  <title> 自定义日历View | Tsui的个人博客 </title>
+  <title>  | Tsui的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -260,7 +255,7 @@
             
             
               
-                自定义日历View
+                
               
             
           </h1>
@@ -272,30 +267,11 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-28T19:26:53+08:00" content="2016-08-28">
-              2016-08-28
+            <time itemprop="dateCreated" datetime="2016-09-18T21:34:53+08:00" content="2016-09-18">
+              2016-09-18
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -319,16 +295,41 @@
       
 
       
-        <h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="image/calendar-01.png" alt="SMCalendar"></p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><blockquote>
-<p>通过类方法创建日历，添加到控制器view即可。可以自定义控制size</p>
+        <hr>
+<p>title: React Native之常用Touchable系列组件<br>tags: ReactNative</p>
+<h2 id="category-ReactNative"><a href="#category-ReactNative" class="headerlink" title="category: ReactNative"></a>category: ReactNative</h2><p>在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？</p>
+<h2 id="高亮触摸-TouchableHighlight"><a href="#高亮触摸-TouchableHighlight" class="headerlink" title="高亮触摸  TouchableHighlight"></a>高亮触摸  TouchableHighlight</h2><p>当手指点击按下的时候，该视图的不透明度会进行降低同时会看到相应的颜色，其实现原理则是在底层新添加了一个View。此外，TouchableHighlight只能进行一层嵌套，不能多层嵌套。</p>
+<h3 id="常用属性："><a href="#常用属性：" class="headerlink" title="常用属性："></a>常用属性：</h3><blockquote>
+<p>activeOpacity  number </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CGRect frame = CGRectMake(10, 150, [UIScreen mainScreen].bounds.size.width - 2 * 10, [UIScreen mainScreen].bounds.size.width - 2 * 10 +50);</span><br><span class="line">SMCalendarView *calendarView = [SMCalendarView calendarViewWithSize:frame.size];</span><br><span class="line">calendarView.frame = frame;</span><br><span class="line">[self.view addSubview: calendarView];</span><br></pre></td></tr></table></figure>
+<p>设置组件在进行触摸的时候，显示的不透明度(取值在0-1之间)</p>
+<blockquote>
+<p>onHideUnderlay  function  方法</p>
+</blockquote>
+<p>当底层被隐藏的时候调用</p>
+<blockquote>
+<p>onShowUnderlay  function 方法</p>
+</blockquote>
+<p>当底层显示的时候调用</p>
+<blockquote>
+<p>style  </p>
+</blockquote>
+<p>可以设置控件的风格演示，该风格演示可以参考View组件的style</p>
+<blockquote>
+<p>underlayColor </p>
+</blockquote>
+<p>当触摸或者点击控件的时候显示出的颜色</p>
+<h3 id="代码演示："><a href="#代码演示：" class="headerlink" title="代码演示："></a>代码演示：</h3><p><img src="image/rn-touchable-01.png" alt="View-02"></p>
 <a id="more"></a>
-<h2 id="提供接口"><a href="#提供接口" class="headerlink" title="提供接口"></a>提供接口</h2><blockquote>
-<p>能够动态查看任何一个月的日历</p>
+<h2 id="不透明触摸-TouchableOpacity"><a href="#不透明触摸-TouchableOpacity" class="headerlink" title="不透明触摸  TouchableOpacity"></a>不透明触摸  TouchableOpacity</h2><p>该组件封装了响应触摸事件；当点击按下的时候，该组件的透明度会降低。</p>
+<h3 id="常用属性：-1"><a href="#常用属性：-1" class="headerlink" title="常用属性："></a>常用属性：</h3><blockquote>
+<p>activeOpacity  number  </p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">/** 显示下一月日历 */</span><br><span class="line">- (void)nextMonth;</span><br><span class="line"></span><br><span class="line">/** 显示上个月日历 */</span><br><span class="line">- (void)lastMonth;</span><br><span class="line"></span><br><span class="line">/** 显示明年今天的日历 */</span><br><span class="line">- (void)nextYear;</span><br><span class="line"></span><br><span class="line">/** 显示去年今天的日历 */</span><br><span class="line">- (void)lastYear;</span><br></pre></td></tr></table></figure>
+<p>设置当用户触摸的时候，组件的透明度</p>
+<h2 id="常见的触摸事件"><a href="#常见的触摸事件" class="headerlink" title="常见的触摸事件"></a>常见的触摸事件</h2><p>在开发中会经常的用到点击、按下、抬起、长按等触发事件，那么在TouchableOpacity中又是改如何展示呢？</p>
+<p>在下面代码中分别演示了如何添加各种触摸事件：</p>
+<p><img src="image/rn-touchable-02.png" alt="View-02"></p>
+<p>(本文转载自旋之华微信公众号)</p>
 
       
     </div>
@@ -349,28 +350,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/27/iOS/popview/" rel="next" title="自定义气泡弹窗控件(popView)">
-                <i class="fa fa-chevron-left"></i> 自定义气泡弹窗控件(popView)
+              <a href="/2016/09/17/reactnative/ReactNative-Image/" rel="next" title="React Native常用组件之Image">
+                <i class="fa fa-chevron-left"></i> React Native常用组件之Image
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/14/reactnative/ReactNative-View/" rel="prev" title="React Native常用组件之View">
-                React Native常用组件之View <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -495,7 +486,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#效果图"><span class="nav-number">1.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法"><span class="nav-number">2.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提供接口"><span class="nav-number">3.</span> <span class="nav-text">提供接口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#category-ReactNative"><span class="nav-number">1.</span> <span class="nav-text">category: ReactNative</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高亮触摸-TouchableHighlight"><span class="nav-number">2.</span> <span class="nav-text">高亮触摸  TouchableHighlight</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用属性："><span class="nav-number">2.1.</span> <span class="nav-text">常用属性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码演示："><span class="nav-number">2.2.</span> <span class="nav-text">代码演示：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不透明触摸-TouchableOpacity"><span class="nav-number">3.</span> <span class="nav-text">不透明触摸  TouchableOpacity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用属性：-1"><span class="nav-number">3.1.</span> <span class="nav-text">常用属性：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的触摸事件"><span class="nav-number">4.</span> <span class="nav-text">常见的触摸事件</span></a></li></ol></div>
             
           </div>
         </section>

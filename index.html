@@ -248,6 +248,140 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/20/reactnative/ReactNative-LifeCycle/" itemprop="url">
+                  React Native组件生命周期
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-20T21:12:39+08:00" content="2016-09-20">
+              2016-09-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>对于习惯了iOS开发的同学，可能会对React Native中组件的生命周期很困惑。在iOS中有一个ViewDidLoad来初始化，那么在RN中，又是在哪里呢？</p>
+<h2 id="看图分析"><a href="#看图分析" class="headerlink" title="看图分析"></a>看图分析</h2><p>在下图中描述了React Native中组件的生命周期，我们可以根据其中的执行顺序在对应的函数中做对应的操作。</p>
+<p><img src="image/rn-lifecycle-01.png" alt="View-02"></p>
+<p>React Native组件的生命周期大致上可以划分为实例化阶段、存在阶段和销毁阶段，其中最常用的为实例化阶段，该阶段就是组件的构建、展示时期，需要我们根据几个函数的调用过程，控制好组件的展示和逻辑的处理。</p>
+<h2 id="实例化阶段函数功能分析"><a href="#实例化阶段函数功能分析" class="headerlink" title="实例化阶段函数功能分析"></a>实例化阶段函数功能分析</h2><blockquote>
+<p>getDefaultProps</p>
+</blockquote>
+<p>该函数用于初始化一些默认的属性，通常会将固定的内容放在这个函数 中进行初始化和赋值；</p>
+<p>在组件中，可以利用<code>this.props</code>获取在这里初始化它的属性，由于组件初始化后，再次使用该组件不会调用<code>getDefaultProps</code>函数，所以组件自己不可以自己修改<code>props</code>（即：props可认为是只读的），只可由其他组件调用它时在外部修改。</p>
+<blockquote>
+<p>getInitialState</p>
+</blockquote>
+<p>该函数是用于对组件的一些状态进行初始化；</p>
+<p>由于该函数不同于<code>getDefaultProps</code>，在以后的过程中，会再次调用，所以可以将控制控件的状态的一些变量放在这里初始化，如控件上显示的文字，可以通过<code>this.state</code>来获取值，通过<code>this.setState</code>来修改<code>state</code>值， 比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;</span><br><span class="line">    activePage: activePage, </span><br><span class="line">    currentX: contentOffSetX  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>注意：一旦调用了<code>this.setState</code>方法，组件一定会调用render方法，对组件进行再次的渲染，不过，如果React框架会自动根据DOM的状态来判断是否需要真正的渲染。</p>
+<blockquote>
+<p>componentWillMount</p>
+</blockquote>
+<p>相当于OC中的<code>ViewWillAppear</code>方法，在组件将要被加载在视图上之前调用，功能相对较少。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/20/reactnative/ReactNative-LifeCycle/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/18/reactnative/ReactNative-Touchable/" itemprop="url">
                   React Native之常用Touchable系列组件
                 </a>
@@ -756,130 +890,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/15/reactnative/ReactNative-Flexbox/" itemprop="url">
-                  React Native常用组件之FlexBox布局
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-15T21:05:52+08:00" content="2016-09-15">
-              2016-09-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactNative</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在前面的案例中，界面的搭建都是采用CSS的布局，基于盒子模型，依赖 display属性 ， position属性， float属性。但对于那些特殊布局非常不方便，比如，垂直居中。</p>
-<p>一种全新的针对web和移动开发布局应运而生：Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。</p>
-<p><img src="image/rn-flexbox-01.png" alt="View-01"></p>
-<h2 id="FlexBox布局"><a href="#FlexBox布局" class="headerlink" title="FlexBox布局"></a>FlexBox布局</h2><h3 id="FlexBox是什么意思呢？"><a href="#FlexBox是什么意思呢？" class="headerlink" title="FlexBox是什么意思呢？"></a>FlexBox是什么意思呢？</h3><pre><code>flexible（形容词）：能够伸缩或者很容易变化，以适应外界条件的变化
-
-box（名词）：通用的矩形容器
-</code></pre><h3 id="什么是FlexBox布局"><a href="#什么是FlexBox布局" class="headerlink" title="什么是FlexBox布局?"></a>什么是FlexBox布局?</h3><p>弹性盒模型（The Flexible Box Module）,又叫Flexbox，意为“弹性布局”，旨在通过弹性的方式来对齐和分布容器中内容的空间，使其能适应不同屏幕，为盒装模型提供最大的灵活性。</p>
-<p>Flex布局主要思想是：让容器有能力让其子项目能够改变其宽度、高度（甚至是顺序），以最佳方式填充可用空间；</p>
-<p>React native中的FlexBox是这个规范的一个子集。</p>
-<h3 id="大部分情况下是处理图中FlexItem在FlexContainer中的位置和尺寸关系"><a href="#大部分情况下是处理图中FlexItem在FlexContainer中的位置和尺寸关系" class="headerlink" title="大部分情况下是处理图中FlexItem在FlexContainer中的位置和尺寸关系"></a>大部分情况下是处理图中FlexItem在FlexContainer中的位置和尺寸关系</h3><p><img src="image/rn-flexbox-02.png" alt="View-01"></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/15/reactnative/ReactNative-Flexbox/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -925,7 +935,7 @@ box（名词）：通用的矩形容器
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-count">17</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

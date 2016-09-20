@@ -1,0 +1,723 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ReactNative," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="对于习惯了iOS开发的同学，可能会对React Native中组件的生命周期很困惑。在iOS中有一个ViewDidLoad来初始化，那么在RN中，又是在哪里呢？
+看图分析在下图中描述了React Native中组件的生命周期，我们可以根据其中的执行顺序在对应的函数中做对应的操作。
+
+React Native组件的生命周期大致上可以划分为实例化阶段、存在阶段和销毁阶段，其中最常用的为实例化阶段，该阶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native组件生命周期">
+<meta property="og:url" content="http://yoursite.com/2016/09/20/reactnative/ReactNative-LifeCycle/index.html">
+<meta property="og:site_name" content="Tsui的个人博客">
+<meta property="og:description" content="对于习惯了iOS开发的同学，可能会对React Native中组件的生命周期很困惑。在iOS中有一个ViewDidLoad来初始化，那么在RN中，又是在哪里呢？
+看图分析在下图中描述了React Native中组件的生命周期，我们可以根据其中的执行顺序在对应的函数中做对应的操作。
+
+React Native组件的生命周期大致上可以划分为实例化阶段、存在阶段和销毁阶段，其中最常用的为实例化阶段，该阶">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-01.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-02.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-03.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-04.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-05.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-06.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-07.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-08.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-09.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-10.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-lifecycle-11.png">
+<meta property="og:updated_time" content="2016-09-20T13:27:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Native组件生命周期">
+<meta name="twitter:description" content="对于习惯了iOS开发的同学，可能会对React Native中组件的生命周期很困惑。在iOS中有一个ViewDidLoad来初始化，那么在RN中，又是在哪里呢？
+看图分析在下图中描述了React Native中组件的生命周期，我们可以根据其中的执行顺序在对应的函数中做对应的操作。
+
+React Native组件的生命周期大致上可以划分为实例化阶段、存在阶段和销毁阶段，其中最常用的为实例化阶段，该阶">
+<meta name="twitter:image" content="http://yoursite.com/image/rn-lifecycle-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/20/reactnative/ReactNative-LifeCycle/"/>
+
+  <title> React Native组件生命周期 | Tsui的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Tsui的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React Native组件生命周期
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-20T21:12:39+08:00" content="2016-09-20">
+              2016-09-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>对于习惯了iOS开发的同学，可能会对React Native中组件的生命周期很困惑。在iOS中有一个ViewDidLoad来初始化，那么在RN中，又是在哪里呢？</p>
+<h2 id="看图分析"><a href="#看图分析" class="headerlink" title="看图分析"></a>看图分析</h2><p>在下图中描述了React Native中组件的生命周期，我们可以根据其中的执行顺序在对应的函数中做对应的操作。</p>
+<p><img src="image/rn-lifecycle-01.png" alt="View-02"></p>
+<p>React Native组件的生命周期大致上可以划分为实例化阶段、存在阶段和销毁阶段，其中最常用的为实例化阶段，该阶段就是组件的构建、展示时期，需要我们根据几个函数的调用过程，控制好组件的展示和逻辑的处理。</p>
+<h2 id="实例化阶段函数功能分析"><a href="#实例化阶段函数功能分析" class="headerlink" title="实例化阶段函数功能分析"></a>实例化阶段函数功能分析</h2><blockquote>
+<p>getDefaultProps</p>
+</blockquote>
+<p>该函数用于初始化一些默认的属性，通常会将固定的内容放在这个函数 中进行初始化和赋值；</p>
+<p>在组件中，可以利用<code>this.props</code>获取在这里初始化它的属性，由于组件初始化后，再次使用该组件不会调用<code>getDefaultProps</code>函数，所以组件自己不可以自己修改<code>props</code>（即：props可认为是只读的），只可由其他组件调用它时在外部修改。</p>
+<blockquote>
+<p>getInitialState</p>
+</blockquote>
+<p>该函数是用于对组件的一些状态进行初始化；</p>
+<p>由于该函数不同于<code>getDefaultProps</code>，在以后的过程中，会再次调用，所以可以将控制控件的状态的一些变量放在这里初始化，如控件上显示的文字，可以通过<code>this.state</code>来获取值，通过<code>this.setState</code>来修改<code>state</code>值， 比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;</span><br><span class="line">    activePage: activePage, </span><br><span class="line">    currentX: contentOffSetX  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>注意：一旦调用了<code>this.setState</code>方法，组件一定会调用render方法，对组件进行再次的渲染，不过，如果React框架会自动根据DOM的状态来判断是否需要真正的渲染。</p>
+<blockquote>
+<p>componentWillMount</p>
+</blockquote>
+<p>相当于OC中的<code>ViewWillAppear</code>方法，在组件将要被加载在视图上之前调用，功能相对较少。</p>
+<a id="more"></a>
+<blockquote>
+<p>render</p>
+</blockquote>
+<p>render是一个组件中必须有的方法，本质上是一个函数，并返回JSX或其他组件来构成DOM，和Android的XML布局类似，注意：只能返回一个顶级元素 ;</p>
+<p>此外，在render函数中，只可通过<code>this.state</code>和<code>this.props</code>来访问在之前函数中初始化的数据值 。</p>
+<blockquote>
+<p>componentDidMount</p>
+</blockquote>
+<p>在调用了render方法后，组件加载成功并被成功渲染出来以后，所要执行的后续操作，一般会在这个函数中处理网络请求等加载数据的操作；</p>
+<p>因为UI已经成功被渲染出来， 所以放在这个函数里进行请求操作，不会出现UI上的错误。</p>
+<p>下图是利用了fetch API来异步请求Web API来加载数据：</p>
+<p><img src="image/rn-lifecycle-02.png" alt="View-02"></p>
+<h2 id="存在期阶段函数功能分析"><a href="#存在期阶段函数功能分析" class="headerlink" title="存在期阶段函数功能分析"></a>存在期阶段函数功能分析</h2><blockquote>
+<p>componentWillReceiveProps    </p>
+</blockquote>
+<p>指父元素对组件的<code>props</code>或<code>state</code>进行了修改</p>
+<blockquote>
+<p>shouldComponentUpdate    </p>
+</blockquote>
+<p>一般用于优化，可以返回false或true来控制是否进行渲染</p>
+<blockquote>
+<p>componentWillUpdate</p>
+</blockquote>
+<p>组件刷新前调用，类似componentWillMount</p>
+<blockquote>
+<p>componentDidUpdate</p>
+</blockquote>
+<p>更新后的<code>hook</code></p>
+<h2 id="销毁期阶段函数功能分析"><a href="#销毁期阶段函数功能分析" class="headerlink" title="销毁期阶段函数功能分析"></a>销毁期阶段函数功能分析</h2><p>用于清理一些无用的内容，如：点击事件Listener，只有一个过程：<code>componentWillUnmount</code></p>
+<h2 id="常用知识点分析"><a href="#常用知识点分析" class="headerlink" title="常用知识点分析"></a>常用知识点分析</h2><h3 id="this-state"><a href="#this-state" class="headerlink" title="this.state"></a>this.state</h3><p>开发中组件免不了要与用户互动，React 的一大创新，就是将组件看成是一个状态机，一开始有一个初始状态，然后用户互动，导致状态变化，从而触发重新渲染 UI。</p>
+<p>举个例子：</p>
+<p><img src="image/rn-lifecycle-03.png" alt="View-02"></p>
+<p>当用户点击组件，导致状态变化，<code>this.setState</code> 方法就修改状态值，每次修改以后，自动调用 <code>this.render</code> 方法，再次渲染组件。</p>
+<p>可以把组件看成一个“状态机”. 根据不同的<code>status</code>有不同的UI展示。只要使用setState改变状态值，根据<code>diff</code>算法算出来有差以后，就会执行ReactDom的render方法，重新渲染页面。</p>
+<blockquote>
+<p>注意：由于 this.props 和 this.state 都用于描述组件的特性，可能会产生混淆。一个简单的区分方法是，this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性。</p>
+</blockquote>
+<h3 id="获取真实的DOM节点"><a href="#获取真实的DOM节点" class="headerlink" title="获取真实的DOM节点"></a>获取真实的DOM节点</h3><p>在React Native中，组件并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，叫做虚拟 DOM （virtual DOM）。</p>
+<p>只有当它插入文档以后，才会变成真实的 DOM 。</p>
+<p>根据 React 的设计，所有的 DOM 变动，都先在虚拟 DOM 上发生，然后再将实际发生变动的部分，反映在真实 DOM上，这种算法叫做 DOM diff，它可以极大提高网页的性能表现。</p>
+<p>但是，有时需要从组件获取真实 DOM 的节点，这时就要用到 ref 属性;</p>
+<p>下图通过一个案例来演示：</p>
+<p><img src="image/rn-lifecycle-04.png" alt="View-02"></p>
+<p>运行结果如下：</p>
+<p><img src="image/rn-lifecycle-05.png" alt="View-02"></p>
+<p>上面代码中，组件 View 的子节点有一个文本输入框，用于获取用户的输入。这时就必须获取真实的 DOM 节点，虚拟 DOM 是拿不到用户输入的。为了做到这一点，文本输入框必须有一个 ref属性，然后 this.refs.[refName] 就会返回这个真实的 DOM 节点。</p>
+<p>需要注意的是，由于 this.refs.[refName] 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错。上面代码中，通过为组件指定 Click 事件的回调函数，确保了只有等到真实 DOM 发生 Click 事件之后，才会读取 this.refs.[refName] 属性。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>React Native组件的生命周期，经历了Mount-&gt;Update-&gt;Unmount这三个大的过程，即从创建到销毁的过程，结合OC中的开发经验，我们在以上的基础上应该可以快速的上手React Native的开发。</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><h3 id="什么是DOM-Diff算法"><a href="#什么是DOM-Diff算法" class="headerlink" title="什么是DOM Diff算法"></a>什么是DOM Diff算法</h3><p>Web界面由DOM树来构成，当其中某一部分发生变化时，其实就是对应的某个DOM节点发生了变化。在React中，构建UI界面的思路是由当前状态决定界面。前后两个状态就对应两套界面，然后由React来比较两个界面的区别，这就需要对DOM树进行Diff算法分析。</p>
+<p>即给定任意两棵树，找到最少的转换步骤。但是标准的的Diff算法复杂度需要O(n^3)，这显然无法满足性能要求。要达到每次界面都可以整体刷新界面的目的，势必需要对算法进行优化。这看上去非常有难度，然而Facebook工程师却做到了，他们结合Web界面的特点做出了两个简单的假设，使得Diff算法复杂度直接降低到O(n)</p>
+<ul>
+<li>两个相同组件产生类似的DOM结构，不同的组件产生不同的DOM结构；</li>
+<li>对于同一层次的一组子节点，它们可以通过唯一的id进行区分。</li>
+</ul>
+<p>算法上的优化是React整个界面Render的基础，事实也证明这两个假设是合理而精确的，保证了整体界面构建的性能。</p>
+<h3 id="ES5和ES6的差异化？"><a href="#ES5和ES6的差异化？" class="headerlink" title="ES5和ES6的差异化？"></a>ES5和ES6的差异化？</h3><p>es5，es6 都是对 ecmascript规范的补充，es5已经大规模使用了，es6目前可能在个别平台存在浏览器兼容性问题。</p>
+<blockquote>
+<p>区别1：创建组件</p>
+</blockquote>
+<p>组件是一个自定义的js对象，在es5中使用React.createClass()；在es6中必须继承React.component，然后进行创建。</p>
+<p>ES5的写法：</p>
+<p><img src="image/rn-lifecycle-06.png" alt="View-02"></p>
+<p>ES6的写法：  </p>
+<p><img src="image/rn-lifecycle-07.png" alt="View-02"></p>
+<blockquote>
+<p>区别2：组件的属性props</p>
+</blockquote>
+<p>在ES6中，其为属性：defaultProps(可以标识static定义在class内，也可以定义在class外)，而在ES5中，其为方法：getDefaultProps: function(){return {name:value}};</p>
+<p>ES5:</p>
+<p><img src="image/rn-lifecycle-08.png" alt="View-02"></p>
+<p>ES6:</p>
+<p><img src="image/rn-lifecycle-09.png" alt="View-02"></p>
+<blockquote>
+<p>区别3：组件的状态state</p>
+<p>ES5:</p>
+</blockquote>
+<p><img src="image/rn-lifecycle-10.png" alt="View-02"></p>
+<p>ES6:</p>
+<p><img src="image/rn-lifecycle-11.png" alt="View-02"></p>
+<p>(本文转载自旋之华微信公众号)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative/" rel="tag">#ReactNative</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/18/reactnative/ReactNative-Touchable/" rel="next" title="React Native之常用Touchable系列组件">
+                <i class="fa fa-chevron-left"></i> React Native之常用Touchable系列组件
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Tsui" />
+          <p class="site-author-name" itemprop="name">Tsui</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TsuiCTPL" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#看图分析"><span class="nav-number">1.</span> <span class="nav-text">看图分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例化阶段函数功能分析"><span class="nav-number">2.</span> <span class="nav-text">实例化阶段函数功能分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在期阶段函数功能分析"><span class="nav-number">3.</span> <span class="nav-text">存在期阶段函数功能分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#销毁期阶段函数功能分析"><span class="nav-number">4.</span> <span class="nav-text">销毁期阶段函数功能分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用知识点分析"><span class="nav-number">5.</span> <span class="nav-text">常用知识点分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this-state"><span class="nav-number">5.1.</span> <span class="nav-text">this.state</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取真实的DOM节点"><span class="nav-number">5.2.</span> <span class="nav-text">获取真实的DOM节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用"><span class="nav-number">7.</span> <span class="nav-text">引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是DOM-Diff算法"><span class="nav-number">7.1.</span> <span class="nav-text">什么是DOM Diff算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES5和ES6的差异化？"><span class="nav-number">7.2.</span> <span class="nav-text">ES5和ES6的差异化？</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tsui</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

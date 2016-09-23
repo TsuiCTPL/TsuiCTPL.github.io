@@ -248,6 +248,264 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/23/reactnative/ReactNative-Fetch/" itemprop="url">
+                  React Native之组件请求网络数据
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-23T21:31:57+08:00" content="2016-09-23">
+              2016-09-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前沿"><a href="#前沿" class="headerlink" title="前沿"></a>前沿</h2><p>在开发中，从网络上加载数据一直是重点和难点，尤其是在做相应的细节优化发面，那么在React Native中通常是用哪种方式加载网络数据呢？</p>
+<p>React Native中通常是通过 Ajax 请求从服务器获取数据，然后在componentDidMount 方法中创建 Ajax 请求，等到请求成功，再用 this.setState 方法重新渲染 UI。</p>
+<h2 id="什么是fetch"><a href="#什么是fetch" class="headerlink" title="什么是fetch?"></a>什么是fetch?</h2><p>fetch 目前还不是 W3C 规范，由 whatag 负责出品。与 Ajax 不同的是，它的 API 不是事件机制，而采用了目前流行的 Promise（MDN Promise 教程）方式处理。</p>
+<p>更多fetch的学习：<a href="https://segmentfault.com/a/1190000003810652">https://segmentfault.com/a/1190000003810652</a></p>
+<p>下图是通过fetch进行网络数据加载：</p>
+<p><img src="image/rn-fetch-01.png" alt="View-01"></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/23/reactnative/ReactNative-Fetch/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/09/23/reactnative/ReactNative-ScrollView/" itemprop="url">
+                  React Native常用组件之ScrollView
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-23T21:17:11+08:00" content="2016-09-23">
+              2016-09-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>从iOS开发的经验来看，scrollView无疑是移动开发中很重要的一个组件，比如后面会学到的ListView就是继承自它。那么，在开发中比如：焦点图、引导页等地方都有其的影子，那接下来我们一起来搞定它！</p>
+<blockquote>
+<p>一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。</p>
+</blockquote>
+<ul>
+<li>两个要点：<ul>
+<li>ScrollView必须有一个确定的高度才能正常工作<br>  它实际上所做的就是将一系列不确定高度的子组件装进一个确定高度的容器（通过滚动操作）。<br>  通常有两种做法：<br>  第一种： 直接给该ScrollView进行设置高度(不建议)；<br>  第二种： ScrollView中不要加{flex:1}。</li>
+<li>ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者</li>
+</ul>
+</li>
+</ul>
+<h2 id="ScrollView中常用的属性"><a href="#ScrollView中常用的属性" class="headerlink" title="ScrollView中常用的属性"></a>ScrollView中常用的属性</h2><p><code>contentContainerStyle</code> StyleSheetPropType(ViewStylePropTypes)</p>
+<p>这些样式会应用到一个内层的内容容器上，所有的子视图都会包裹在内容容器内。</p>
+<p><code>horizontal</code> bool </p>
+<p>当此属性为true的时候，所有的的子视图会在水平方向上排成一行，而不是默认的在垂直方向上排成一列。默认值为false。</p>
+<p><code>keyboardDismissMode</code> </p>
+<p>enum(‘none’, “interactive”, ‘on-drag’) </p>
+<p>用户拖拽滚动视图的时候，是否要隐藏软键盘。</p>
+<ul>
+<li><p><code>none</code>（默认值），拖拽时不隐藏软键盘。</p>
+</li>
+<li><p><code>on-drag</code> 当拖拽开始的时候隐藏软键盘。</p>
+</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/23/reactnative/ReactNative-ScrollView/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/20/reactnative/ReactNative-LifeCycle/" itemprop="url">
                   React Native组件生命周期
                 </a>
@@ -620,276 +878,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/17/reactnative/ReactNative-Text/" itemprop="url">
-                  React Native常用组件之Text
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-17T21:16:41+08:00" content="2016-09-17">
-              2016-09-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactNative</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="什么是Text组件？"><a href="#什么是Text组件？" class="headerlink" title="什么是Text组件？"></a>什么是Text组件？</h2><p>一个用于显示文本的React组件，和Android中的TextView组件或者OC中的Label组件相类似，专门用来显示基本的文本信息；除了基本的显示布局之外，可以进行嵌套显示，设置样式，以及可以做事件(例如:点击)处理；</p>
-<h2 id="Text组件常用的属性方法"><a href="#Text组件常用的属性方法" class="headerlink" title="Text组件常用的属性方法"></a>Text组件常用的属性方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Attributes.style = &#123;</span><br><span class="line">    color string</span><br><span class="line">    containerBackgroundColor string</span><br><span class="line">    fontFamily string</span><br><span class="line">    fontSize number</span><br><span class="line">    fontStyle enum(&apos;normal&apos;, &apos;italic&apos;)</span><br><span class="line">    fontWeight enum(&quot;normal&quot;, &apos;bold&apos;, &apos;100&apos;, &apos;200&apos;, &apos;300&apos;, &apos;400&apos;, &apos;500&apos;, &apos;600&apos;, &apos;700&apos;, &apos;800&apos;, &apos;900&apos;)</span><br><span class="line">    lineHeight number</span><br><span class="line">    textAlign enum(&quot;auto&quot;, &apos;left&apos;, &apos;right&apos;, &apos;center&apos;)</span><br><span class="line">    writingDirection enum(&quot;auto&quot;, &apos;ltr&apos;, &apos;rtl&apos;)</span><br><span class="line">    numberOfLines number</span><br><span class="line">    textAlign (&quot;auto&quot;, &apos;left&apos;, &apos;right&apos;, &apos;center&apos;, &apos;justify&apos;)</span><br><span class="line">    fontWeight (&quot;normal&quot;, &apos;bold&apos;, &apos;100&apos;, &apos;200&apos;, &apos;300&apos;, &apos;400&apos;, &apos;500&apos;, &apos;600&apos;, &apos;700&apos;, &apos;800&apos;, &apos;900&apos;)</span><br><span class="line">    onPress  fcuntion</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>注释如下：</p>
-<p><code>color</code> 字体颜色</p>
-<p> <code>numberOfLines</code> (number) 进行设置Text显示文本的行数，如果显示的内容超过了行数，默认其他多余的信息就不会显示了</p>
-<p><code>onPress</code> (fcuntion)  该方法当文本发生点击的时候调用该方法</p>
-<p> <code>color</code>  字体颜色</p>
-<p><code>fontFamily</code>  字体名称</p>
-<p><code>fontSize</code>  字体大小</p>
-<p><code>fontStyle</code>   字体风格(normal,italic)</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/17/reactnative/ReactNative-Text/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/16/reactnative/ReactNative-TextInput/" itemprop="url">
-                  React Native常用组件之TextInput
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-16T21:42:19+08:00" content="2016-09-16">
-              2016-09-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactNative</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>文本输入框，相当于OC中的UITextField，在用法和属性方面，两者都有很大的借鉴之处：通过键盘将文本输入到应用程序的一个基本的组件；</p>
-<h2 id="TextInput的常见属性"><a href="#TextInput的常见属性" class="headerlink" title="TextInput的常见属性"></a>TextInput的常见属性</h2><p>因为TextInput是继承自UIView，所以View的属性TextInput也能够使用，一些样式类的属性在学习的时候可以参照View的相关属性。</p>
-<blockquote>
-<p>value 字符串型</p>
-</blockquote>
-<p>文本输入的默认值</p>
-<blockquote>
-<p>onChangeText 函数    </p>
-</blockquote>
-<p>监听用户输入的值：  </p>
-<p><img src="image/rn-textinput-01.png" alt="View-01"></p>
-<blockquote>
-<p>keyboardType  键盘类型</p>
-</blockquote>
-<p>决定打开哪种键盘，例如，数字键盘。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">enum(&apos;default&apos;, &quot;ascii-capable&quot;, &apos;numbers-and-punctuation&apos;, &apos;url&apos;, </span><br><span class="line">&apos;number-pad&apos;, &apos;phone-pad&apos;, &apos;name-phone-pad&apos;, &apos;email-address&apos;, </span><br><span class="line">&apos;decimal-pad&apos;, &apos;twitter&apos;, &apos;web-search&apos;, &quot;numeric&quot;)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>multiline 布尔型</p>
-</blockquote>
-<p>如果值为真，文本输入可以输入多行。默认值为假。</p>
-<blockquote>
-<p>password 布尔型</p>
-</blockquote>
-<p>如果值为真，文本输入框就成为一个密码区域。默认值为假。</p>
-<blockquote>
-<p>placeholder 字符串型</p>
-</blockquote>
-<p>在文本输入之前字符串将被呈现出来，通常被称为占位文字</p>
-<blockquote>
-<p>placeholderTextColor 字符串型</p>
-</blockquote>
-<p>占位符字符串的文本颜色</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/16/reactnative/ReactNative-TextInput/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -935,7 +923,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

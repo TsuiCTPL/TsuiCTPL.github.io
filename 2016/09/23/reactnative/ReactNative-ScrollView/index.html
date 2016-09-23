@@ -1,0 +1,776 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ReactNative," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言从iOS开发的经验来看，scrollView无疑是移动开发中很重要的一个组件，比如后面会学到的ListView就是继承自它。那么，在开发中比如：焦点图、引导页等地方都有其的影子，那接下来我们一起来搞定它！
+
+一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。
+
+
+两个要点：
+ScrollView必须有一个确定的高度才能正常工作  它实际上所做的就是将">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native常用组件之ScrollView">
+<meta property="og:url" content="http://yoursite.com/2016/09/23/reactnative/ReactNative-ScrollView/index.html">
+<meta property="og:site_name" content="Tsui的个人博客">
+<meta property="og:description" content="前言从iOS开发的经验来看，scrollView无疑是移动开发中很重要的一个组件，比如后面会学到的ListView就是继承自它。那么，在开发中比如：焦点图、引导页等地方都有其的影子，那接下来我们一起来搞定它！
+
+一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。
+
+
+两个要点：
+ScrollView必须有一个确定的高度才能正常工作  它实际上所做的就是将">
+<meta property="og:image" content="http://yoursite.com/image/rn-scrollview-01.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-scrollview-02.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-scrollview-03.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-scrollview-04.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-scrollview-05.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-scrollview-06.png">
+<meta property="og:updated_time" content="2016-09-23T13:31:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Native常用组件之ScrollView">
+<meta name="twitter:description" content="前言从iOS开发的经验来看，scrollView无疑是移动开发中很重要的一个组件，比如后面会学到的ListView就是继承自它。那么，在开发中比如：焦点图、引导页等地方都有其的影子，那接下来我们一起来搞定它！
+
+一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。
+
+
+两个要点：
+ScrollView必须有一个确定的高度才能正常工作  它实际上所做的就是将">
+<meta name="twitter:image" content="http://yoursite.com/image/rn-scrollview-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/23/reactnative/ReactNative-ScrollView/"/>
+
+  <title> React Native常用组件之ScrollView | Tsui的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Tsui的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React Native常用组件之ScrollView
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-23T21:17:11+08:00" content="2016-09-23">
+              2016-09-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>从iOS开发的经验来看，scrollView无疑是移动开发中很重要的一个组件，比如后面会学到的ListView就是继承自它。那么，在开发中比如：焦点图、引导页等地方都有其的影子，那接下来我们一起来搞定它！</p>
+<blockquote>
+<p>一个包装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。</p>
+</blockquote>
+<ul>
+<li>两个要点：<ul>
+<li>ScrollView必须有一个确定的高度才能正常工作<br>  它实际上所做的就是将一系列不确定高度的子组件装进一个确定高度的容器（通过滚动操作）。<br>  通常有两种做法：<br>  第一种： 直接给该ScrollView进行设置高度(不建议)；<br>  第二种： ScrollView中不要加{flex:1}。</li>
+<li>ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者</li>
+</ul>
+</li>
+</ul>
+<h2 id="ScrollView中常用的属性"><a href="#ScrollView中常用的属性" class="headerlink" title="ScrollView中常用的属性"></a>ScrollView中常用的属性</h2><p><code>contentContainerStyle</code> StyleSheetPropType(ViewStylePropTypes)</p>
+<p>这些样式会应用到一个内层的内容容器上，所有的子视图都会包裹在内容容器内。</p>
+<p><code>horizontal</code> bool </p>
+<p>当此属性为true的时候，所有的的子视图会在水平方向上排成一行，而不是默认的在垂直方向上排成一列。默认值为false。</p>
+<p><code>keyboardDismissMode</code> </p>
+<p>enum(‘none’, “interactive”, ‘on-drag’) </p>
+<p>用户拖拽滚动视图的时候，是否要隐藏软键盘。</p>
+<ul>
+<li><p><code>none</code>（默认值），拖拽时不隐藏软键盘。</p>
+</li>
+<li><p><code>on-drag</code> 当拖拽开始的时候隐藏软键盘。</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><code>interactive</code> 软键盘伴随拖拽操作同步地消失，并且如果往上滑动会恢复键盘。安卓设备上不支持这个选项，会表现的和none一样。</li>
+</ul>
+<p><code>keyboardShouldPersistTaps</code> bool </p>
+<p>当此属性为false的时候，在软键盘激活之后，点击焦点文本输入框以外的地方，键盘就会隐藏。如果为true，滚动视图不会响应点击操作，并且键盘不会自动消失。默认值为false。</p>
+<p><code>onScroll</code> function </p>
+<p>在滚动的过程中，每帧最多调用一次此回调函数。调用的频率可以用scrollEventThrottle属性来控制。</p>
+<p><code>refreshControl</code> element </p>
+<p>指定RefreshControl组件，用于为ScrollView提供下拉刷新功能。</p>
+<p><code>removeClippedSubviews</code> bool </p>
+<p>（实验特性）：当此属性为true时，屏幕之外的子视图（子视图的overflow样式需要设为hidden）会被移除。这个可以提升大列表的滚动性能。默认值为true。</p>
+<p><code>showsHorizontalScrollIndicator</code> bool </p>
+<p>当此属性为true的时候，显示一个水平方向的滚动条。</p>
+<p><code>showsVerticalScrollIndicator</code> bool </p>
+<p>当此属性为true的时候，显示一个垂直方向的滚动条。</p>
+<p><code>alwaysBounceHorizontal</code> bool </p>
+<p>当此属性为true时，水平方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当horizontal={true}时默认值为true，否则为false。</p>
+<p><code>ios</code> <code>alwaysBounceVertical</code> bool </p>
+<p>当此属性为true时，垂直方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当horizontal={true}时默认值为false，否则为true。</p>
+<p><code>ios``automaticallyAdjustContentInsets</code> bool </p>
+<p>如果滚动视图放在一个导航条或者工具条后面的时候，iOS系统是否要自动调整内容的范围。默认值为true。（译注：如果你的ScrollView或ListView的头部出现莫名其妙的空白，尝试将此属性置为false）</p>
+<p><code>ios``bounces</code> bool </p>
+<p>当值为true时，如果内容范围比滚动视图本身大，在到达内容末尾的时候，可以弹性地拉动一截。如果为false，尾部的所有弹性都会被禁用，即使alwaysBounce*属性为true。默认值为true。</p>
+<p><code>ios``bouncesZoom</code> bool </p>
+<p>当值为true时，使用手势缩放内容可以超过min/max的限制，然后在手指抬起之后弹回min/max的缩放比例。否则的话，缩放不能超过限制。</p>
+<p><code>ios``canCancelContentTouches</code> bool </p>
+<p>当值为false时，一旦有子节点响应触摸操作，即使手指开始移动也不会拖动滚动视图。默认值为true（在以上情况下可以拖动滚动视图。）</p>
+<p><code>ios``centerContent</code> bool </p>
+<p>当值为true时，如果滚动视图的内容比视图本身小，则会自动把内容居中放置。当内容比滚动视图大的时候，此属性没有作用。默认值为false。</p>
+<p><code>ios``contentInset</code> </p>
+<p>{top: number, left: number, bottom: number, right: number} </p>
+<p>内容范围相对滚动视图边缘的坐标。默认为{0, 0, 0, 0}。</p>
+<p><code>ios``contentOffset</code> PointPropType </p>
+<p>用来手动设置初始的滚动坐标。默认值为{x: 0, y: 0}。</p>
+<p><code>ios``decelerationRate</code> number </p>
+<p>一个浮点数，用于决定当用户抬起手指之后，滚动视图减速停下的速度。常见的选项有：</p>
+<ul>
+<li><p>Normal: 0.998 (默认值)</p>
+</li>
+<li><p>Fast: 0.9</p>
+</li>
+</ul>
+<p><code>ios``directionalLockEnabled</code> bool </p>
+<p>当值为真时，滚动视图在拖拽的时候会锁定只有垂直或水平方向可以滚动。默认值为false。</p>
+<p><code>ios``maximumZoomScale</code> number </p>
+<p>允许的最大缩放比例。默认值为1.0。</p>
+<p><code>ios``minimumZoomScale</code> number </p>
+<p>允许的最小缩放比例。默认值为1.0。</p>
+<p><code>ios``onRefreshStart</code> function </p>
+<p>已过期<br>请使用refreshControl 属性代替。</p>
+<p><code>ios``onScrollAnimationEnd</code> function </p>
+<p>当滚动动画结束之后调用此回调。</p>
+<p><code>ios``pagingEnabled</code> bool </p>
+<p>当值为true时，滚动条会停在滚动视图的尺寸的整数倍位置。这个可以用在水平分页上。默认值为false。</p>
+<p><code>ios``scrollEnabled</code> bool </p>
+<p>当值为false的时候，内容不能滚动，默认值为true。</p>
+<p><code>ios``scrollEventThrottle</code> number </p>
+<p>这个属性控制在滚动过程中，scroll事件被调用的频率（单位是每秒事件数量）。更大的数值能够更及时的跟踪滚动位置，不过可能会带来性能问题，因为更多的信息会通过bridge传递。默认值为0，意味着每次视图被滚动，scroll事件只会被调用一次。</p>
+<p><code>ios``scrollIndicatorInsets</code> </p>
+<p>{top: number, left: number, bottom: number, right: number} </p>
+<p>决定滚动条距离视图边缘的坐标。这个值应该和contentInset一样。默认值为{0, 0, 0, 0}。</p>
+<p><code>ios``scrollsToTop</code> bool </p>
+<p>当此值为true时，点击状态栏的时候视图会滚动到顶部。默认值为true。</p>
+<p><code>ios``snapToAlignment</code> </p>
+<p>enum(‘start’, “center”, ‘end’) </p>
+<p>当设置了snapToInterval，snapToAlignment会定义停驻点与滚动视图之间的关系。</p>
+<ul>
+<li><p>start (默认) 会将停驻点对齐在左侧（水平）或顶部（垂直）</p>
+</li>
+<li><p>center 会将停驻点对齐到中间</p>
+</li>
+<li><p>end 会将停驻点对齐到右侧（水平）或底部（垂直）</p>
+</li>
+</ul>
+<p><code>ios``snapToInterval</code> number </p>
+<p>当设置了此属性时，会让滚动视图滚动停止后，停止在snapToInterval的倍数的位置。这可以在一些子视图比滚动视图本身小的时候用于实现分页显示。与snapToAlignment组合使用。</p>
+<p><code>ios``stickyHeaderIndices</code> [number] </p>
+<p>一个子视图下标的数组，用于决定哪些成员会在滚动之后固定在屏幕顶端。举个例子，传递stickyHeaderIndices={[0]}会让第一个成员固定在滚动视图顶端。这个属性不能和horizontal={true}一起使用。</p>
+<p><code>ios``zoomScale</code>number </p>
+<p>滚动视图内容初始的缩放比例。默认值为1.0。</p>
+<p><code>OnMomentumScrollEnd</code>  function</p>
+<p>当一帧滚动完毕的时候调用，e.nativeEvent.contentOffset。</p>
+<p><code>onScrollBeginDrag</code>  fuction</p>
+<p>当开始手动拖拽的时候调用。</p>
+<p><code>onScrollEndDrag</code>  fuction</p>
+<p>当结束手动拖拽的时候调用。</p>
+<blockquote>
+<p>注意：ScrollView是继承自View，所以View中所有的属性同样适用于ScrollView。</p>
+</blockquote>
+<h2 id="Demo巩固练习"><a href="#Demo巩固练习" class="headerlink" title="Demo巩固练习"></a>Demo巩固练习</h2><h3 id="用scrollView实现轮播图效果"><a href="#用scrollView实现轮播图效果" class="headerlink" title="用scrollView实现轮播图效果"></a>用scrollView实现轮播图效果</h3><blockquote>
+<p>技术实现要点</p>
+</blockquote>
+<ul>
+<li><p>需要导入计时器类库</p>
+<p>   <code>npm i react-timer-mixin --save</code>   </p>
+<p>   在项目中需要引入并注册：</p>
+</li>
+</ul>
+<pre><code>`引入：var TimerMixin = require(&apos;react-timer-mixin&apos;)`
+
+`注册：mixins: [TimerMixin]`
+</code></pre><ul>
+<li>在上下文中拿到组件需要给组件绑定ref</li>
+</ul>
+<p><img src="image/rn-scrollview-01.png" alt="View-01"></p>
+<ul>
+<li><p>根据上下文求出偏移量</p>
+<p>  <code>e.nativeEvent.contentOffset.x;</code></p>
+</li>
+<li><p>让scrollView根据偏移量进行滚动</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var currentX = activePage * screenWidth;</span><br><span class="line">scrollView.scrollResponderScrollTo(&#123;x:currentX, y:0, animated:true&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="详细代码截图如下"><a href="#详细代码截图如下" class="headerlink" title="详细代码截图如下"></a>详细代码截图如下</h3><p>核心代码如下：</p>
+<p><img src="image/rn-scrollview-02.png" alt="View-01"></p>
+<p><img src="image/rn-scrollview-03.png" alt="View-01"></p>
+<p><img src="image/rn-scrollview-04.png" alt="View-01"></p>
+<p><img src="image/rn-scrollview-05.png" alt="View-01"></p>
+<p>运行效果截图：</p>
+<p><img src="image/rn-scrollview-06.png" alt="View-01"></p>
+<p>(本文转载自旋之华微信公众号)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative/" rel="tag">#ReactNative</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/20/reactnative/ReactNative-LifeCycle/" rel="next" title="React Native组件生命周期">
+                <i class="fa fa-chevron-left"></i> React Native组件生命周期
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/23/reactnative/ReactNative-Fetch/" rel="prev" title="React Native之组件请求网络数据">
+                React Native之组件请求网络数据 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Tsui" />
+          <p class="site-author-name" itemprop="name">Tsui</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TsuiCTPL" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ScrollView中常用的属性"><span class="nav-number">2.</span> <span class="nav-text">ScrollView中常用的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo巩固练习"><span class="nav-number">3.</span> <span class="nav-text">Demo巩固练习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用scrollView实现轮播图效果"><span class="nav-number">3.1.</span> <span class="nav-text">用scrollView实现轮播图效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细代码截图如下"><span class="nav-number">3.2.</span> <span class="nav-text">详细代码截图如下</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tsui</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,767 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ReactNative," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="学习iOS开发的同学应该都知道UITableView，几乎每个APP中都有它的存在，而且衍生出各种形态；那么同样，ListView就是在React Native中的tableView，而且更加简单和灵活易用；让我们一起搞定它。
+前言ListView组件是React Native中一个比较核心的组件，用途非常的广； 该组件设计用来高效的展示垂直滚动的数据列表：
+
+首先创建一个ListView.Dat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React Native常用组件之ListView">
+<meta property="og:url" content="http://yoursite.com/2016/09/26/reactnative/ReactNative-Listview/index.html">
+<meta property="og:site_name" content="Tsui的个人博客">
+<meta property="og:description" content="学习iOS开发的同学应该都知道UITableView，几乎每个APP中都有它的存在，而且衍生出各种形态；那么同样，ListView就是在React Native中的tableView，而且更加简单和灵活易用；让我们一起搞定它。
+前言ListView组件是React Native中一个比较核心的组件，用途非常的广； 该组件设计用来高效的展示垂直滚动的数据列表：
+
+首先创建一个ListView.Dat">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-01.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-02.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-03.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-04.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-05.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-06.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-07.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-08.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-09.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-10.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-11.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-12.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-13.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-14.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-15.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-16.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-listview-17.png">
+<meta property="og:updated_time" content="2016-09-26T14:42:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React Native常用组件之ListView">
+<meta name="twitter:description" content="学习iOS开发的同学应该都知道UITableView，几乎每个APP中都有它的存在，而且衍生出各种形态；那么同样，ListView就是在React Native中的tableView，而且更加简单和灵活易用；让我们一起搞定它。
+前言ListView组件是React Native中一个比较核心的组件，用途非常的广； 该组件设计用来高效的展示垂直滚动的数据列表：
+
+首先创建一个ListView.Dat">
+<meta name="twitter:image" content="http://yoursite.com/image/rn-listview-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/26/reactnative/ReactNative-Listview/"/>
+
+  <title> React Native常用组件之ListView | Tsui的个人博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Tsui的个人博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                React Native常用组件之ListView
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-26T22:24:03+08:00" content="2016-09-26">
+              2016-09-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>学习iOS开发的同学应该都知道UITableView，几乎每个APP中都有它的存在，而且衍生出各种形态；那么同样，ListView就是在React Native中的tableView，而且更加简单和灵活易用；让我们一起搞定它。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ListView组件是React Native中一个比较核心的组件，用途非常的广； 该组件设计用来高效的展示垂直滚动的数据列表：</p>
+<ul>
+<li><p>首先创建一个ListView.DataSource数据源，然后给它传递一个普通的数据数组；</p>
+</li>
+<li><p>使用数据源(data source)实例化一个ListView组件,定义一个renderRow回调函数，这个函数会接受数组中的每个数据作为参数，并返回一个可渲染的组件(该就是列表的每一行的item)。</p>
+</li>
+</ul>
+<p><img src="image/rn-listview-01.png" alt="View-01"></p>
+<p>##ListView常用的属性</p>
+<blockquote>
+<p>ScrollView </p>
+</blockquote>
+<p>相关属性样式全部继承</p>
+<blockquote>
+<p>dataSource</p>
+</blockquote>
+<p>ListViewDataSource  设置ListView的数据源</p>
+<a id="more"></a>
+<blockquote>
+<p>initialListSize  number  </p>
+</blockquote>
+<p>设置ListView组件刚刚加载的时候渲染的列表行数，用这个属性确定首屏或者首页加载的数量，而不是花大量的时间渲染加载很多页面数据，提高性能。</p>
+<blockquote>
+<p>onChangeVisibleRows  function  </p>
+</blockquote>
+<p>(visibleRows,changedRows)=&gt;void。<br>当可见的行发生变化的时候回调该方法。</p>
+<blockquote>
+<p>onEndReachedThreshold  number </p>
+</blockquote>
+<p>当偏移量达到设置的临界值调用onEndReached</p>
+<blockquote>
+<p>onEndReached function </p>
+</blockquote>
+<p>当所有的数据项行被渲染之后，并且列表往下进行滚动。一直滚动到距离底部onEndReachedThredshold设置的值进行回调该方法。原生的滚动事件进行传递(通过参数的形式)。</p>
+<blockquote>
+<p>pageSize   number </p>
+</blockquote>
+<p>每一次事件的循环渲染的行数</p>
+<blockquote>
+<p>removeClippedSubviews  bool  </p>
+</blockquote>
+<p>该属性用于提供大数据列表的滚动性能。该使用的时候需要给每一行(row)的布局添加over:’hidden’样式。该属性默认是开启状态。</p>
+<blockquote>
+<p>renderFooter function 方法  ()=&gt;renderable </p>
+</blockquote>
+<p>在每次渲染过程中头和尾总会重新进行渲染。如果发现该重新绘制的性能开销比较大的时候，可以使用StaticContainer容器或者其他合适的组件。</p>
+<blockquote>
+<p>renderHeader  function 方法 </p>
+</blockquote>
+<p>在每一次渲染过程中Footer(尾)该会一直在列表的底部，header(头)该会一直在列表的头部，用法同上。</p>
+<blockquote>
+<p>renderRow function  </p>
+</blockquote>
+<p>(rowData,sectionID,rowID,highlightRow)=&gt;renderable<br>       该方法有四个参数，其中分别为数据源中一条数据，分组的ID，行的ID，以及标记是否是高亮选中的状态信息。</p>
+<blockquote>
+<p>renderScrollComponent function </p>
+</blockquote>
+<p>方法 (props)=&gt;renderable  该方法可以返回一个可以滚动的组件。默认该会返回一个ScrollView</p>
+<blockquote>
+<p>renderSectionHeader function (sectionData,sectionID)=&gt;renderable  </p>
+</blockquote>
+<p>如果设置了该方法，这样会为每一个section渲染一个粘性的header视图。该视图粘性的效果是当刚刚被渲染开始的时候，该会处于对应的内容的顶部，然后开始滑动的时候，该会跑到屏幕的顶端。直到滑动到下一个section的header(头)视图，然后被替代为止。</p>
+<blockquote>
+<p>renderSeparator function  </p>
+</blockquote>
+<p>(sectionID,rowID,adjacentRowHighlighted)=&gt;renderable </p>
+<p>如果设置该方法，会在被每一行的下面渲染一个组件作为分隔。除了每一个section分组的头部视图前面的最后一行。</p>
+<blockquote>
+<p>scrollRenderAheadDistance number  </p>
+</blockquote>
+<p>进行设置当该行进入屏幕多少像素以内之后就开始渲染该行</p>
+<h2 id="ListView的高阶特性"><a href="#ListView的高阶特性" class="headerlink" title="ListView的高阶特性"></a>ListView的高阶特性</h2><p>ListView同样支持一些高级特性，包括设置每一组的粘性的头部(类似于iPhone)、支持设置列表的header以及footer视图、当数据列表滑动到最底部的时候支持onEndReached方法回调、设备屏幕列表可见的视图数据发生变化的时候回调onChangeVisibleRows以及一些性能方面的优化特性。</p>
+<p>ListView设计的时候，当需要动态加载非常大的数据的时候，下面有一些方法性能优化的方法可以让我们的ListView滚动的时候更加平滑：</p>
+<blockquote>
+<p>1）只更新渲染数据变化的那一行  ，rowHasChanged方法会告诉ListView组件是否需要重新渲染当前那一行。</p>
+<p>2）选择渲染的频率，默认情况下面每一个event-loop(事件循环)只会渲染一行(可以同pageSize自定义属性设置)。这样可以把大的工作量进行分隔，提供整体渲染的性能。</p>
+</blockquote>
+<h2 id="综合大演练"><a href="#综合大演练" class="headerlink" title="综合大演练"></a>综合大演练</h2><h3 id="最简单的ListView"><a href="#最简单的ListView" class="headerlink" title="最简单的ListView"></a>最简单的ListView</h3><p>核心代码：</p>
+<p><img src="image/rn-listview-02.png" alt="View-01"></p>
+<p>运行效果截图：</p>
+<p><img src="image/rn-listview-03.png" alt="View-01"></p>
+<h3 id="带有组头的汽车品牌展示"><a href="#带有组头的汽车品牌展示" class="headerlink" title="带有组头的汽车品牌展示"></a>带有组头的汽车品牌展示</h3><ul>
+<li>核心代码：</li>
+</ul>
+<p><img src="image/rn-listview-04.png" alt="View-01"></p>
+<p><img src="image/rn-listview-05.png" alt="View-01"></p>
+<p><img src="image/rn-listview-06.png" alt="View-01"></p>
+<p><img src="image/rn-listview-07.png" alt="View-01"></p>
+<ul>
+<li>运行结果：</li>
+</ul>
+<p><img src="image/rn-listview-08.png" alt="View-01"></p>
+<ul>
+<li>项目技术点分析：</li>
+</ul>
+<p>在React Native中，ScrollView组件可以使用 stickyHeaderIndices 轻松实现 sticky 效果；而使用ListView组件时，使用 stickyHeaderIndices 则不生效。</p>
+<p>如何实现滚动时每个section header会吸顶？</p>
+<p>  在ListView中要实现 sticky ，需要使用 cloneWithRowsAndSections 方法，将 dataBlob(object), sectionIDs (array), rowIDs (array) 三个值传进去。</p>
+<blockquote>
+<p>dataBlob</p>
+</blockquote>
+<p>dataBlob 包含ListView所需的所有数据（section header 和 rows），在ListView渲染数据时，使用getSectionData 和 getRowData 来渲染每一行数据。 dataBlob 的 key 值包含 sectionID + rowId</p>
+<p><img src="image/rn-listview-09.png" alt="View-01"></p>
+<blockquote>
+<p>sectionIDs<br>sectionIDs 用于标识每组section。</p>
+</blockquote>
+<p><img src="image/rn-listview-10.png" alt="View-01"></p>
+<blockquote>
+<p>rowIDs</p>
+</blockquote>
+<p>rowIDs 用于描述每个 section 里的每行数据的位置及是否需要渲染。在ListView渲染时，会先遍历 rowIDs 获取到对应的 dataBlob 数据。</p>
+<p><img src="image/rn-listview-11.png" alt="View-01"></p>
+<blockquote>
+<p>模拟对应的数据结构</p>
+</blockquote>
+<p><img src="image/rn-listview-12.png" alt="View-01"></p>
+<blockquote>
+<p>在 DataSource 中，设置ListView获取row和section的方法</p>
+</blockquote>
+<p><img src="image/rn-listview-13.png" alt="View-01"></p>
+<blockquote>
+<p>最后</p>
+</blockquote>
+<ul>
+<li>1.刷新状态，将数据传入到listView中：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.setState(&#123;</span><br><span class="line">    dataSource:this.state.dataSource.cloneWithRowsAndSections(dataBlob, sectionIDs, rowIDs)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2.设置listView的相关属性：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ListView</span><br><span class="line">    dataSource = &#123;this.state.dataSource&#125;</span><br><span class="line">    renderRow = &#123;this.renderRow&#125;</span><br><span class="line">    renderSectionHeader = &#123;this.renderSectionHeader&#125;</span><br><span class="line">    /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="用ListView实现九宫格布局"><a href="#用ListView实现九宫格布局" class="headerlink" title="用ListView实现九宫格布局"></a>用ListView实现九宫格布局</h3><p>相关技术点：</p>
+<p>通常情况下，我们对ListView的操作是纵向的，如果是横向的，则需要设置ListView的contentContainerStyle属性，添加flexDirection:‘row’让多个ListView在同一行显示，而且通过flexWrap:’wrap’进行换行。</p>
+<p>核心代码：</p>
+<p><img src="image/rn-listview-14.png" alt="View-01"><br><img src="image/rn-listview-15.png" alt="View-01"><br><img src="image/rn-listview-16.png" alt="View-01"></p>
+<p>运行效果：</p>
+<p><img src="image/rn-listview-17.png" alt="View-01"></p>
+<p>(本文转载自旋之华微信公众号)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative/" rel="tag">#ReactNative</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/23/reactnative/ReactNative-Fetch/" rel="next" title="React Native之组件请求网络数据">
+                <i class="fa fa-chevron-left"></i> React Native之组件请求网络数据
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Tsui" />
+          <p class="site-author-name" itemprop="name">Tsui</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TsuiCTPL" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ListView的高阶特性"><span class="nav-number">2.</span> <span class="nav-text">ListView的高阶特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#综合大演练"><span class="nav-number">3.</span> <span class="nav-text">综合大演练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最简单的ListView"><span class="nav-number">3.1.</span> <span class="nav-text">最简单的ListView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#带有组头的汽车品牌展示"><span class="nav-number">3.2.</span> <span class="nav-text">带有组头的汽车品牌展示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用ListView实现九宫格布局"><span class="nav-number">3.3.</span> <span class="nav-text">用ListView实现九宫格布局</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Tsui</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

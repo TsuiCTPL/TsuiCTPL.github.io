@@ -248,6 +248,138 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/26/reactnative/ReactNative-Listview/" itemprop="url">
+                  React Native常用组件之ListView
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-26T22:24:03+08:00" content="2016-09-26">
+              2016-09-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>学习iOS开发的同学应该都知道UITableView，几乎每个APP中都有它的存在，而且衍生出各种形态；那么同样，ListView就是在React Native中的tableView，而且更加简单和灵活易用；让我们一起搞定它。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ListView组件是React Native中一个比较核心的组件，用途非常的广； 该组件设计用来高效的展示垂直滚动的数据列表：</p>
+<ul>
+<li><p>首先创建一个ListView.DataSource数据源，然后给它传递一个普通的数据数组；</p>
+</li>
+<li><p>使用数据源(data source)实例化一个ListView组件,定义一个renderRow回调函数，这个函数会接受数组中的每个数据作为参数，并返回一个可渲染的组件(该就是列表的每一行的item)。</p>
+</li>
+</ul>
+<p><img src="image/rn-listview-01.png" alt="View-01"></p>
+<p>##ListView常用的属性</p>
+<blockquote>
+<p>ScrollView </p>
+</blockquote>
+<p>相关属性样式全部继承</p>
+<blockquote>
+<p>dataSource</p>
+</blockquote>
+<p>ListViewDataSource  设置ListView的数据源</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/26/reactnative/ReactNative-Listview/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/23/reactnative/ReactNative-Fetch/" itemprop="url">
                   React Native之组件请求网络数据
                 </a>
@@ -756,128 +888,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/17/reactnative/ReactNative-Image/" itemprop="url">
-                  React Native常用组件之Image
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-17T21:23:55+08:00" content="2016-09-17">
-              2016-09-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactNative</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在开发中还有一个非常重要的组件Image，通过这个组件可以展示各种各样的图片，而且在React Native中该组件可以通过多种方式加载图片资源。</p>
-<h2 id="Image组件的基本用法"><a href="#Image组件的基本用法" class="headerlink" title="Image组件的基本用法"></a>Image组件的基本用法</h2><h3 id="从当前项目中加载图片"><a href="#从当前项目中加载图片" class="headerlink" title="从当前项目中加载图片"></a>从当前项目中加载图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">    &lt;Text style=&#123;styles.textMarginTop&#125;&gt;加载本地的图片&lt;/Text&gt;</span><br><span class="line">    &lt;Image source=&#123;require(&apos;./img/2.png&apos;)&#125; style=&#123;&#123;width: 120, height: 120&#125;&#125;  /&gt;</span><br><span class="line"> &lt;/View&gt;</span><br></pre></td></tr></table></figure>
-<p>该图片资源文件的查找和JS模块相似，该会根据填写的图片路径相对于当前的js文件路径进行搜索。</p>
-<p>此外，React Naive的Packager会根据平台选择相应的文件，例如:my_icon.ios.png和my_icon.android.png两个文件(命名方式android或者ios)，会分别根据android或者ios平台选择相应的文件。</p>
-<h3 id="加载使用APP中的图片"><a href="#加载使用APP中的图片" class="headerlink" title="加载使用APP中的图片"></a>加载使用APP中的图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">    &lt;Text style=&#123;styles.textMarginTop&#125;&gt;加载Xcode中的图片&lt;/Text&gt;</span><br><span class="line">    &lt;Image source=&#123;require(&apos;image!icon_homepage_map&apos;)&#125; style=&#123;&#123;width: 50,height:50&#125;&#125;/&gt;</span><br><span class="line">&lt;/View&gt;</span><br></pre></td></tr></table></figure>
-<p>使用已经打包在APP中的图片资源(例如:xcode asset文件夹以及Android drawable文件夹)</p>
-<h3 id="加载来自网络的图片"><a href="#加载来自网络的图片" class="headerlink" title="加载来自网络的图片"></a>加载来自网络的图片</h3><p>客户端的很多图片资源基本上都是实时通过网络进行获取的，写法和上面的加载本地资源图片的方式不太一样，这边一定需要指定图片的尺寸大小，实现如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">      &lt;Image source=&#123;&#123;uri:&apos;https://www.baidu.com/img/bd_logo1.png&apos;&#125;&#125; style=&#123;&#123;flex:1,width:200, height:100, resizeMode: Image.resizeMode.cover&#125;&#125;/&gt;</span><br><span class="line">      &lt;Image source=&#123;&#123;uri:&apos;https://www.baidu.com/img/bd_logo1.png&apos;&#125;&#125; style=&#123;&#123;flex:1,width:200, height:100, resizeMode: Image.resizeMode.contain&#125;&#125;/&gt;</span><br><span class="line">      &lt;Image source=&#123;&#123;uri:&apos;https://www.baidu.com/img/bd_logo1.png&apos;&#125;&#125; style=&#123;&#123;flex:1,width:200, height:100, resizeMode: Image.resizeMode.stretch&#125;&#125;&gt;</span><br><span class="line">&lt;/View&gt;</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/17/reactnative/ReactNative-Image/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -923,7 +933,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

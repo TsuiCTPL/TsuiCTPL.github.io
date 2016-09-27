@@ -84,22 +84,30 @@
 
 
 
-<meta name="description" content="写在前面在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？
-高亮触摸  TouchableHighlight当手指点击按下的时候，该视图的不透明度会进行降低同时会看到相应的颜色，其实现原理则是在底层新添加了一个View。此外，TouchableHighlight只能进行一层嵌套，不">
+<meta name="description" content="在目前市面上的APP中，大部分都是选项与选项之间的切换，比如：微信、微博、QQ空间……, 在iOS中，我们可以通过TabItem类进行实现。那么，在React Native中，我们应该怎么实现呢？
+
+在React Native中可以通过TabBarIOS和TabBarIOS.Item组件来实现选项卡切换效果，大家可以看到后面带有IOS，所以这个组件是不支持Android的，当然后面我们可以自定义该">
 <meta property="og:type" content="article">
-<meta property="og:title" content="React Native之常用Touchable系列组件">
-<meta property="og:url" content="http://yoursite.com/2016/09/18/reactnative/ReactNative-Touchable/index.html">
+<meta property="og:title" content="React Native常用组件之TabBarIOS和TabBarIOS.Item组件">
+<meta property="og:url" content="http://yoursite.com/2016/09/27/reactnative/ReactNative-TabBar/index.html">
 <meta property="og:site_name" content="Tsui的个人博客">
-<meta property="og:description" content="写在前面在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？
-高亮触摸  TouchableHighlight当手指点击按下的时候，该视图的不透明度会进行降低同时会看到相应的颜色，其实现原理则是在底层新添加了一个View。此外，TouchableHighlight只能进行一层嵌套，不">
-<meta property="og:image" content="http://yoursite.com/image/rn-touchable-01.png">
-<meta property="og:image" content="http://yoursite.com/image/rn-touchable-02.png">
-<meta property="og:updated_time" content="2016-09-18T13:56:22.000Z">
+<meta property="og:description" content="在目前市面上的APP中，大部分都是选项与选项之间的切换，比如：微信、微博、QQ空间……, 在iOS中，我们可以通过TabItem类进行实现。那么，在React Native中，我们应该怎么实现呢？
+
+在React Native中可以通过TabBarIOS和TabBarIOS.Item组件来实现选项卡切换效果，大家可以看到后面带有IOS，所以这个组件是不支持Android的，当然后面我们可以自定义该">
+<meta property="og:image" content="http://yoursite.com/image/rn-tabbar-01.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-tabbar-02.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-tabbar-03.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-tabbar-04.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-tabbar-05.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-tabbar-06.png">
+<meta property="og:image" content="http://yoursite.com/image/rn-tabbar-07.png">
+<meta property="og:updated_time" content="2016-09-27T12:52:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React Native之常用Touchable系列组件">
-<meta name="twitter:description" content="写在前面在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？
-高亮触摸  TouchableHighlight当手指点击按下的时候，该视图的不透明度会进行降低同时会看到相应的颜色，其实现原理则是在底层新添加了一个View。此外，TouchableHighlight只能进行一层嵌套，不">
-<meta name="twitter:image" content="http://yoursite.com/image/rn-touchable-01.png">
+<meta name="twitter:title" content="React Native常用组件之TabBarIOS和TabBarIOS.Item组件">
+<meta name="twitter:description" content="在目前市面上的APP中，大部分都是选项与选项之间的切换，比如：微信、微博、QQ空间……, 在iOS中，我们可以通过TabItem类进行实现。那么，在React Native中，我们应该怎么实现呢？
+
+在React Native中可以通过TabBarIOS和TabBarIOS.Item组件来实现选项卡切换效果，大家可以看到后面带有IOS，所以这个组件是不支持Android的，当然后面我们可以自定义该">
+<meta name="twitter:image" content="http://yoursite.com/image/rn-tabbar-01.png">
 
 
 
@@ -120,9 +128,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/18/reactnative/ReactNative-Touchable/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/27/reactnative/ReactNative-TabBar/"/>
 
-  <title> React Native之常用Touchable系列组件 | Tsui的个人博客 </title>
+  <title> React Native常用组件之TabBarIOS和TabBarIOS.Item组件 | Tsui的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +260,7 @@
             
             
               
-                React Native之常用Touchable系列组件
+                React Native常用组件之TabBarIOS和TabBarIOS.Item组件
               
             
           </h1>
@@ -264,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-18T21:34:53+08:00" content="2016-09-18">
-              2016-09-18
+            <time itemprop="dateCreated" datetime="2016-09-27T20:48:48+08:00" content="2016-09-27">
+              2016-09-27
             </time>
           </span>
 
@@ -311,38 +319,60 @@
       
 
       
-        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？</p>
-<h2 id="高亮触摸-TouchableHighlight"><a href="#高亮触摸-TouchableHighlight" class="headerlink" title="高亮触摸  TouchableHighlight"></a>高亮触摸  TouchableHighlight</h2><p>当手指点击按下的时候，该视图的不透明度会进行降低同时会看到相应的颜色，其实现原理则是在底层新添加了一个View。此外，TouchableHighlight只能进行一层嵌套，不能多层嵌套。</p>
-<h3 id="常用属性："><a href="#常用属性：" class="headerlink" title="常用属性："></a>常用属性：</h3><blockquote>
-<p>activeOpacity  number </p>
-</blockquote>
-<p>设置组件在进行触摸的时候，显示的不透明度(取值在0-1之间)</p>
-<blockquote>
-<p>onHideUnderlay  function  方法</p>
-</blockquote>
-<p>当底层被隐藏的时候调用</p>
-<blockquote>
-<p>onShowUnderlay  function 方法</p>
-</blockquote>
-<p>当底层显示的时候调用</p>
-<blockquote>
-<p>style  </p>
-</blockquote>
-<p>可以设置控件的风格演示，该风格演示可以参考View组件的style</p>
-<blockquote>
-<p>underlayColor </p>
-</blockquote>
-<p>当触摸或者点击控件的时候显示出的颜色</p>
-<h3 id="代码演示："><a href="#代码演示：" class="headerlink" title="代码演示："></a>代码演示：</h3><p><img src="image/rn-touchable-01.png" alt="View-02"></p>
+        <p>在目前市面上的APP中，大部分都是选项与选项之间的切换，比如：微信、微博、QQ空间……, 在iOS中，我们可以通过TabItem类进行实现。那么，在React Native中，我们应该怎么实现呢？</p>
+<p><img src="image/rn-tabbar-01.png" alt="View-01"></p>
+<p>在React Native中可以通过TabBarIOS和TabBarIOS.Item组件来实现选项卡切换效果，大家可以看到后面带有IOS，所以这个组件是不支持Android的，当然后面我们可以自定义该组件。</p>
+<h2 id="TabBarIOS常见的属性"><a href="#TabBarIOS常见的属性" class="headerlink" title="TabBarIOS常见的属性"></a>TabBarIOS常见的属性</h2><ul>
+<li><p>View的所有属性都可以被继承</p>
+</li>
+<li><p>barTintColor  color  设置tab条的背景颜色</p>
+</li>
+<li><p>tintColor color  设置tab条上被选中图标的颜色</p>
+</li>
+<li><p>translucent  bool   设置Tab栏是不是半透明的效果</p>
+</li>
+</ul>
 <a id="more"></a>
-<h2 id="不透明触摸-TouchableOpacity"><a href="#不透明触摸-TouchableOpacity" class="headerlink" title="不透明触摸  TouchableOpacity"></a>不透明触摸  TouchableOpacity</h2><p>该组件封装了响应触摸事件；当点击按下的时候，该组件的透明度会降低。</p>
-<h3 id="常用属性：-1"><a href="#常用属性：-1" class="headerlink" title="常用属性："></a>常用属性：</h3><blockquote>
-<p>activeOpacity  number  </p>
+<h2 id="TabBarIOS-Item常见的属性"><a href="#TabBarIOS-Item常见的属性" class="headerlink" title="TabBarIOS.Item常见的属性"></a>TabBarIOS.Item常见的属性</h2><blockquote>
+<p>badge   number  </p>
 </blockquote>
-<p>设置当用户触摸的时候，组件的透明度</p>
-<h2 id="常见的触摸事件"><a href="#常见的触摸事件" class="headerlink" title="常见的触摸事件"></a>常见的触摸事件</h2><p>在开发中会经常的用到点击、按下、抬起、长按等触发事件，那么在TouchableOpacity中又是改如何展示呢？</p>
-<p>在下面代码中分别演示了如何添加各种触摸事件：</p>
-<p><img src="image/rn-touchable-02.png" alt="View-02"></p>
+<p>在图标的右上方显示小红色气泡，显示信息</p>
+<blockquote>
+<p>icon  Image.propTypes.source    </p>
+</blockquote>
+<p>Tab按钮自定义的图标，如果systemicon属性被定义了，那么该属性会被忽略</p>
+<blockquote>
+<p>onPress  function   </p>
+</blockquote>
+<p>当Tab按钮被选中的时候进行回调，你可以设置selected={true}来设置组件被选中</p>
+<blockquote>
+<p>selected  bool    </p>
+</blockquote>
+<p>该属性标志子页面是否可见，如果是一个空白的内容页面，那么一定是忘记了选中任何的一个页面标签Tab</p>
+<blockquote>
+<p>selectedIcon   Image.propTypes.source   </p>
+</blockquote>
+<p>设置当Tab按钮被选中的时候显示的自定义图标，如果systemIcon属性被设置了，那么该属性会被忽略。如果定义了icon属性，但是当前的selectedIcon属性没有设置，那么该图标会被设置成蓝色</p>
+<blockquote>
+<p>style</p>
+</blockquote>
+<p>设置样式风格，继承View的样式各种风格</p>
+<blockquote>
+<p>systemIcon  </p>
+</blockquote>
+<p>enum(‘bookmarks’,’contacts’,’downloads’,’favorites’,’featured’,’history’,’more’,’most-recent’,’most-viewed’,’recents’,’search’,’top-rated’)<br>系统预定义的图标，如果你使用这些图标，那么你上面设置的标题，选中的图标都会被这些系统图标所覆盖。</p>
+<blockquote>
+<p>title   string    </p>
+</blockquote>
+<p>在Tab按钮图标下面显示的标题信息，如果你设置了SystemIcon属性，那么该属性会被忽略</p>
+<h2 id="TabBarIOS-Item案例展示"><a href="#TabBarIOS-Item案例展示" class="headerlink" title="TabBarIOS.Item案例展示"></a>TabBarIOS.Item案例展示</h2><p>代码截图如下:</p>
+<p><img src="image/rn-tabbar-02.png" alt="View-01"></p>
+<p><img src="image/rn-tabbar-03.png" alt="View-01"></p>
+<p><img src="image/rn-tabbar-04.png" alt="View-01"></p>
+<p><img src="image/rn-tabbar-05.png" alt="View-01"></p>
+<p><img src="image/rn-tabbar-06.png" alt="View-01"></p>
+<p>案例效果展示:</p>
+<p><img src="image/rn-tabbar-07.png" alt="View-01"></p>
 <p>(本文转载自旋之华微信公众号)</p>
 
       
@@ -375,17 +405,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/17/reactnative/ReactNative-Image/" rel="next" title="React Native常用组件之Image">
-                <i class="fa fa-chevron-left"></i> React Native常用组件之Image
+              <a href="/2016/09/26/reactnative/ReactNative-Listview/" rel="next" title="React Native常用组件之ListView">
+                <i class="fa fa-chevron-left"></i> React Native常用组件之ListView
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/20/reactnative/ReactNative-LifeCycle/" rel="prev" title="React Native组件生命周期">
-                React Native组件生命周期 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -510,7 +536,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高亮触摸-TouchableHighlight"><span class="nav-number">2.</span> <span class="nav-text">高亮触摸  TouchableHighlight</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用属性："><span class="nav-number">2.1.</span> <span class="nav-text">常用属性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码演示："><span class="nav-number">2.2.</span> <span class="nav-text">代码演示：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不透明触摸-TouchableOpacity"><span class="nav-number">3.</span> <span class="nav-text">不透明触摸  TouchableOpacity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用属性：-1"><span class="nav-number">3.1.</span> <span class="nav-text">常用属性：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的触摸事件"><span class="nav-number">4.</span> <span class="nav-text">常见的触摸事件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TabBarIOS常见的属性"><span class="nav-number">1.</span> <span class="nav-text">TabBarIOS常见的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TabBarIOS-Item常见的属性"><span class="nav-number">2.</span> <span class="nav-text">TabBarIOS.Item常见的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TabBarIOS-Item案例展示"><span class="nav-number">3.</span> <span class="nav-text">TabBarIOS.Item案例展示</span></a></li></ol></div>
             
           </div>
         </section>

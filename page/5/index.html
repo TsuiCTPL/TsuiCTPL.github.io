@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ReactNative," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,22 +84,15 @@
 
 
 
-<meta name="description" content="写在前面在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？
-高亮触摸  TouchableHighlight当手指点击按下的时候，该视图的不透明度会进行降低同时会看到相应的颜色，其实现原理则是在底层新添加了一个View。此外，TouchableHighlight只能进行一层嵌套，不">
-<meta property="og:type" content="article">
-<meta property="og:title" content="React Native之常用Touchable系列组件">
-<meta property="og:url" content="http://yoursite.com/2016/09/18/reactnative/ReactNative-Touchable/index.html">
+<meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tsui的个人博客">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="Tsui的个人博客">
-<meta property="og:description" content="写在前面在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？
-高亮触摸  TouchableHighlight当手指点击按下的时候，该视图的不透明度会进行降低同时会看到相应的颜色，其实现原理则是在底层新添加了一个View。此外，TouchableHighlight只能进行一层嵌套，不">
-<meta property="og:image" content="http://yoursite.com/image/rn-touchable-01.png">
-<meta property="og:image" content="http://yoursite.com/image/rn-touchable-02.png">
-<meta property="og:updated_time" content="2016-09-18T13:56:22.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React Native之常用Touchable系列组件">
-<meta name="twitter:description" content="写在前面在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？
-高亮触摸  TouchableHighlight当手指点击按下的时候，该视图的不透明度会进行降低同时会看到相应的颜色，其实现原理则是在底层新添加了一个View。此外，TouchableHighlight只能进行一层嵌套，不">
-<meta name="twitter:image" content="http://yoursite.com/image/rn-touchable-01.png">
+<meta name="twitter:title" content="Tsui的个人博客">
+<meta name="twitter:description">
 
 
 
@@ -120,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/18/reactnative/ReactNative-Touchable/"/>
+  <link rel="canonical" href="http://yoursite.com/page/5/"/>
 
-  <title> React Native之常用Touchable系列组件 | Tsui的个人博客 </title>
+  <title> Tsui的个人博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +136,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,9 +225,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
   
@@ -252,7 +247,10 @@
             
             
               
-                React Native之常用Touchable系列组件
+                
+                <a class="post-title-link" href="/2016/03/17/iOS/MemoryManager/" itemprop="url">
+                  iOS内存管理（转载）
+                </a>
               
             
           </h1>
@@ -264,8 +262,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-18T21:34:53+08:00" content="2016-09-18">
-              2016-09-18
+            <time itemprop="dateCreated" datetime="2016-03-17T15:23:32+08:00" content="2016-03-17">
+              2016-03-17
             </time>
           </span>
 
@@ -278,8 +276,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactNative</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -311,97 +309,70 @@
       
 
       
-        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？</p>
-<h2 id="高亮触摸-TouchableHighlight"><a href="#高亮触摸-TouchableHighlight" class="headerlink" title="高亮触摸  TouchableHighlight"></a>高亮触摸  TouchableHighlight</h2><p>当手指点击按下的时候，该视图的不透明度会进行降低同时会看到相应的颜色，其实现原理则是在底层新添加了一个View。此外，TouchableHighlight只能进行一层嵌套，不能多层嵌套。</p>
-<h3 id="常用属性："><a href="#常用属性：" class="headerlink" title="常用属性："></a>常用属性：</h3><blockquote>
-<p>activeOpacity  number </p>
+        
+          <h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><blockquote>
+<p>堆：需要手动释放。</p>
+<p>栈：系统自动管理。</p>
 </blockquote>
-<p>设置组件在进行触摸的时候，显示的不透明度(取值在0-1之间)</p>
-<blockquote>
-<p>onHideUnderlay  function  方法</p>
+<p>所谓内存管理,就是对内存进行管理,涉及的操作有:</p>
+<ul>
+<li>分配内存 :比如创建一个对象,会增加内存占用</li>
+<li>清除内存 :比如销毁一个对象,能减小内存占用</li>
+</ul>
+<p>内存管理的管理范围</p>
+<ul>
+<li>任何继承了NSObject的对象</li>
+<li>对其他非对象类型无效(int、char、float、double、struct、enum等)</li>
+</ul>
+<p>只有OC对象才需要进行内存管理的本质原因</p>
+<ul>
+<li>OC对象存放于堆里面</li>
+<li>OC基础类型一般放在栈里面(栈内存会被系统自动回收)</li>
+</ul>
+<h3 id="引用计数器的常见操作"><a href="#引用计数器的常见操作" class="headerlink" title="引用计数器的常见操作"></a>引用计数器的常见操作</h3><blockquote>
+<p>给对象发送一条retain消息,可以使引用计数器值+1（retain方法返回对象本身）</p>
+<p>给对象发送一条release消息,可以使引用计数器值-1</p>
+<p>给对象发送retainCount消息,可以获得当前的引用计数器值</p>
 </blockquote>
-<p>当底层被隐藏的时候调用</p>
-<blockquote>
-<p>onShowUnderlay  function 方法</p>
-</blockquote>
-<p>当底层显示的时候调用</p>
-<blockquote>
-<p>style  </p>
-</blockquote>
-<p>可以设置控件的风格演示，该风格演示可以参考View组件的style</p>
-<blockquote>
-<p>underlayColor </p>
-</blockquote>
-<p>当触摸或者点击控件的时候显示出的颜色</p>
-<h3 id="代码演示："><a href="#代码演示：" class="headerlink" title="代码演示："></a>代码演示：</h3><p><img src="image/rn-touchable-01.png" alt="View-02"></p>
-<a id="more"></a>
-<h2 id="不透明触摸-TouchableOpacity"><a href="#不透明触摸-TouchableOpacity" class="headerlink" title="不透明触摸  TouchableOpacity"></a>不透明触摸  TouchableOpacity</h2><p>该组件封装了响应触摸事件；当点击按下的时候，该组件的透明度会降低。</p>
-<h3 id="常用属性：-1"><a href="#常用属性：-1" class="headerlink" title="常用属性："></a>常用属性：</h3><blockquote>
-<p>activeOpacity  number  </p>
-</blockquote>
-<p>设置当用户触摸的时候，组件的透明度</p>
-<h2 id="常见的触摸事件"><a href="#常见的触摸事件" class="headerlink" title="常见的触摸事件"></a>常见的触摸事件</h2><p>在开发中会经常的用到点击、按下、抬起、长按等触发事件，那么在TouchableOpacity中又是改如何展示呢？</p>
-<p>在下面代码中分别演示了如何添加各种触摸事件：</p>
-<p><img src="image/rn-touchable-02.png" alt="View-02"></p>
-<p>(本文转载自旋之华微信公众号)</p>
-
+<p>需要<code>注意</code>的是: release并不代表销毁\回收对象,仅仅是计数器-1。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/17/iOS/MemoryManager/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
       
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
-      
-        
-
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/ReactNative/" rel="tag">#ReactNative</a>
-          
-        </div>
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/09/17/reactnative/ReactNative-Image/" rel="next" title="React Native常用组件之Image">
-                <i class="fa fa-chevron-left"></i> React Native常用组件之Image
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/09/20/reactnative/ReactNative-LifeCycle/" rel="prev" title="React Native组件生命周期">
-                React Native组件生命周期 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
+
 
 
           </div>
@@ -409,10 +380,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -432,17 +399,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -503,17 +461,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高亮触摸-TouchableHighlight"><span class="nav-number">2.</span> <span class="nav-text">高亮触摸  TouchableHighlight</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用属性："><span class="nav-number">2.1.</span> <span class="nav-text">常用属性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码演示："><span class="nav-number">2.2.</span> <span class="nav-text">代码演示：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不透明触摸-TouchableOpacity"><span class="nav-number">3.</span> <span class="nav-text">不透明触摸  TouchableOpacity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用属性：-1"><span class="nav-number">3.1.</span> <span class="nav-text">常用属性：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的触摸事件"><span class="nav-number">4.</span> <span class="nav-text">常见的触摸事件</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -610,10 +557,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

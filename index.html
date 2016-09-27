@@ -248,6 +248,133 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/27/reactnative/ReactNative-TabBar/" itemprop="url">
+                  React Native常用组件之TabBarIOS和TabBarIOS.Item组件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-27T20:48:48+08:00" content="2016-09-27">
+              2016-09-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在目前市面上的APP中，大部分都是选项与选项之间的切换，比如：微信、微博、QQ空间……, 在iOS中，我们可以通过TabItem类进行实现。那么，在React Native中，我们应该怎么实现呢？</p>
+<p><img src="image/rn-tabbar-01.png" alt="View-01"></p>
+<p>在React Native中可以通过TabBarIOS和TabBarIOS.Item组件来实现选项卡切换效果，大家可以看到后面带有IOS，所以这个组件是不支持Android的，当然后面我们可以自定义该组件。</p>
+<h2 id="TabBarIOS常见的属性"><a href="#TabBarIOS常见的属性" class="headerlink" title="TabBarIOS常见的属性"></a>TabBarIOS常见的属性</h2><ul>
+<li><p>View的所有属性都可以被继承</p>
+</li>
+<li><p>barTintColor  color  设置tab条的背景颜色</p>
+</li>
+<li><p>tintColor color  设置tab条上被选中图标的颜色</p>
+</li>
+<li><p>translucent  bool   设置Tab栏是不是半透明的效果</p>
+</li>
+</ul>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/09/27/reactnative/ReactNative-TabBar/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/26/reactnative/ReactNative-Listview/" itemprop="url">
                   React Native常用组件之ListView
                 </a>
@@ -751,148 +878,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/18/reactnative/ReactNative-Touchable/" itemprop="url">
-                  React Native之常用Touchable系列组件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-18T21:34:53+08:00" content="2016-09-18">
-              2016-09-18
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
-                    <span itemprop="name">ReactNative</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>在前面的登录界面中，我们发现所有的组件不会对用户的点击、触摸、拖拽做出合适的响应，这是十分不友好的。那么，在React Native中如何让视图对触发做出合适的响应呢？</p>
-<h2 id="高亮触摸-TouchableHighlight"><a href="#高亮触摸-TouchableHighlight" class="headerlink" title="高亮触摸  TouchableHighlight"></a>高亮触摸  TouchableHighlight</h2><p>当手指点击按下的时候，该视图的不透明度会进行降低同时会看到相应的颜色，其实现原理则是在底层新添加了一个View。此外，TouchableHighlight只能进行一层嵌套，不能多层嵌套。</p>
-<h3 id="常用属性："><a href="#常用属性：" class="headerlink" title="常用属性："></a>常用属性：</h3><blockquote>
-<p>activeOpacity  number </p>
-</blockquote>
-<p>设置组件在进行触摸的时候，显示的不透明度(取值在0-1之间)</p>
-<blockquote>
-<p>onHideUnderlay  function  方法</p>
-</blockquote>
-<p>当底层被隐藏的时候调用</p>
-<blockquote>
-<p>onShowUnderlay  function 方法</p>
-</blockquote>
-<p>当底层显示的时候调用</p>
-<blockquote>
-<p>style  </p>
-</blockquote>
-<p>可以设置控件的风格演示，该风格演示可以参考View组件的style</p>
-<blockquote>
-<p>underlayColor </p>
-</blockquote>
-<p>当触摸或者点击控件的时候显示出的颜色</p>
-<h3 id="代码演示："><a href="#代码演示：" class="headerlink" title="代码演示："></a>代码演示：</h3><p><img src="image/rn-touchable-01.png" alt="View-02"></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/18/reactnative/ReactNative-Touchable/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -933,7 +923,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
